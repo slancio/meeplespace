@@ -33,7 +33,6 @@ Meeplespace.Models.CurrentUser = Meeplespace.Models.User.extend({
       success: function (data) {
         model.set(data);
         options.success && options.success();
-        Meeplespace.current_city = model.get('city_id');
       },
       error: function () {
         options.error && options.error();
