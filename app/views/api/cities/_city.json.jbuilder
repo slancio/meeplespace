@@ -1,5 +1,8 @@
 json.(city, :id, :name, :img_url)
-json.array! city.hosts, :id, :nickname, as: :host
+json.hosts city.hosts do |host|
+  json.id host.id
+  json.nickname host.nickname
+end
 json.events city.events do |event|
   json.id event.id
   json.data event.date

@@ -1,8 +1,29 @@
-if (current_user.id == user.id) do
+if (current_user.id == user.id)
   json.(user, :id, :nickname, :email, :city_id, :host)
-  json.array! user.hosted_events, :id, :date, :location, :host_id, as: :hosted_event
-  json.array! user.events, :id, :date, :location, :host_id, as: :event
+  json.hosted_events user.hosted_events do |hosted_event|
+    json.id hosted_event.id
+    json.date hosted_event.date
+    json.location hosted_event.location
+    json.location_privacy hosted_event.location_privacy
+    json.host_id hosted_event.host_id
+  end
+  json.events user.events do |event|
+    json.id event.id
+    json.date event.date
+    json.location event.location
+    json.host_id event.host_id
+  end
 else
   json.(user, :id, :nickname, :city_id, :host)
-  json.array! user.hosted_events, :id, :date, :location, :host_id, as: :hosted_event
+  json.hosted_events user.hosted_events do |hosted_event|
+    json.id hosted_event.id
+    json.date hosted_event.date
+    unless location_privacy
+      json.location hosted_event.location
+    else
+      json.location "Location will be emailed to attendees"
+    end
+    json.location_privacy hosted_event.location_privacy
+    json.host_id hosted_event.host_id
+  end
 end

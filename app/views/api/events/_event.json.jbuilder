@@ -5,10 +5,13 @@ else
   json.location "Location will be emailed to attendees"
 end
 
-if current_user.events.include?(event.id)
-  json.array! event.attendees, :id, :nickname, as: :attendee
-end
-
-if current_user.hosted_events.include?(event.id)
-  json.array! event.attendees, :id, :nickname, :email, as: :attendee
+json.attendees event.attendees do |attendee|
+  if current_user.events.include?(event.id)
+    json.id attendee.id
+    json.nickname attendee.nickname
+  elsif current_user.hosted_events.include?(event.id)
+    json.id attendee.id
+    json.nickname attendee.nickname
+    json.email attendee.email
+  end
 end

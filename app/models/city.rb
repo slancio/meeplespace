@@ -20,6 +20,6 @@ class City < ActiveRecord::Base
     foreign_key: :city_id,
     primary_key: :id
 
-  has_many :events, through: :hosts, autosave: false
+  has_many :events, through: :hosts
 
 end
