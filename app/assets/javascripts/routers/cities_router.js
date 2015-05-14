@@ -7,7 +7,6 @@ Meeplespace.Routers.CitiesRouter = Backbone.Router.extend({
   },
 
   routes: {
-    "": "cityIndex",
     "cities/": "cityIndex",
     "cities/:id": "cityShow"
   },
