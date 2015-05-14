@@ -1,0 +1,28 @@
+<% action = (user.persisted? ? user_url(user) : users_url) %>
+<% method = (user.persisted? ? "patch" : "post") %>
+<% message = (user.persisted? ? "Update user": "Create user") %>
+
+<form action="<%= action %>" method="post">
+  <input name="_method" type="hidden" value="<%= method %>">
+  <%= auth_token %>
+  
+  <label for="user_email">Email</label><br>
+  <input name="user[email]" id="user_email" type="text"><br><br>
+  
+  <label for="user_nickname">Nickname</label><br>
+  <input name="user[nickname]" id="user_nickname" type="text"><br><br>
+
+  <label for="user_password">Password</label><br>
+  <input name="user[password]" id="user_password" type="password"><br><br>
+
+  <label for="user_city">City</label><br>
+  <select name="user[city_id]" id="user_city">
+    <% cities.each do |city| %>
+      <option value="<%= city.id %>" <%= "selected" if (city.id == user.city_id) %>>
+        <%= city.name %>
+      </option>
+    <% end %>
+  </select><br><br>
+  
+  <input type="submit" value="<%= message %>"><br>
+</form>

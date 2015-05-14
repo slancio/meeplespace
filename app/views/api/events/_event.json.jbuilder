@@ -1,0 +1,1 @@
+json.(event, :id, :date, :location, :location_privacy, :slots, :host_id)

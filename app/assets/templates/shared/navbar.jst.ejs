@@ -1,0 +1,23 @@
+<ul class="nav-logo">
+  <li class="logo">
+    <img src="meeplespacelogo"><br>
+    <h1>meeple.space</h1>
+  </li>
+  <% if (Meeplespace.currentUser.isSignedIn()) { %>
+    <li class="nav-city-link">
+      <% var current_city = Meeplespace.currentUser.city_id %>
+      <a href="#cities/<%= current_city %>"><% Meeplespace.cities.get(current_city).name %></a>
+    </li>
+  <% } %>
+</ul>
+<ul class="nav-items">
+  <li class="nav-item"><a href="#cities">Cities</a></li>
+  <% if (Meeplespace.currentUser.isSignedIn()) { %>
+    <li class="nav-item"><a href="#cities/<%= current_city %>">Let's Play Games!</a></li>
+    <li class="nav-item"><a href="#users/<%= Meeplespace.currentUser.id %>">Account</a></li>
+    <li class="nav-item sign-out"><a href="#">Sign Out</a></li>
+  <% } else { %>
+    <li class="nav-item"><a href="#session/new">Sign In</a></li>
+  <% } %>
+
+</ul>
