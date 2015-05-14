@@ -4,7 +4,37 @@ Meeplespace.Models.User = Backbone.Model.extend({
   toJSON: function () {
     var json = { user: _.clone(this.attributes) };
     return json;
-  }
+  },
+
+  // hosted_events: function () {
+  //   if (!this._hosted_events) {
+  //     this._hosted_events = new Meeplespace.Collections.Events([], { user: this });
+  //   }
+
+  //   return this._hosted_events;
+  // },
+
+  // events: function () {
+  //   if (!this._events) {
+  //     this._events = new Meeplespace.Collections.Events([], { user: this });
+  //   }
+
+  //   return this._events;
+  // },
+
+  // parse: function (response) {
+  //   if (response.hosted_events) {
+  //     this.hosted_events().set(response.hosted_events);
+  //     delete response.hosted_events;
+  //   }
+
+  //   if (response.events) {
+  //     this.events().set(response.events);
+  //     delete response.events;
+  //   }
+
+  //   return response;
+  // }
 });
 
 Meeplespace.Models.CurrentUser = Meeplespace.Models.User.extend({

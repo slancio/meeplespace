@@ -3,6 +3,7 @@ Meeplespace.Views.Navbar = Backbone.View.extend({
   initialize: function (options) {
     this.listenTo(Meeplespace.cities, "sync", this.render);
     this.listenTo(Meeplespace.currentUser, "signIn signOut", this.render);
+    this.render();
   },
 
   events: {
