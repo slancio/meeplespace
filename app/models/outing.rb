@@ -10,6 +10,9 @@
 #
 
 class Outing < ActiveRecord::Base
-  belongs_to :user, inverse_of: :outing
-  belongs_to :event, inverse_of: :outing
+  validates :event_id, presence: true, uniqueness: { scope: :user_id, message: "One slot per User" }
+  validates :user_id, presence: true, uniqueness: { scope: :event_id, message: "One slot per User" }
+
+  belongs_to :user, inverse_of: :outings
+  belongs_to :event, inverse_of: :outings
 end
