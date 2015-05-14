@@ -1,5 +1,3 @@
-<h2>Sign Up</h2>
-
 <form>
 
   <label for="user-email">Email</label><br>
@@ -18,7 +16,7 @@
          <% if (city.id === user.city_id) { %>
           <%= "selected" %>
          <% } %>
-      ><%= city.name %>
+      ><%= city.get('name') %>
       </option>
     <% }); %>
   </select><br><br>
