@@ -1,6 +1,7 @@
 Meeplespace.Views.HomePage = Backbone.View.extend({
   
   initialize: function (options) {
+    this.listenTo(Meeplespace.cities, "sync", this.render);
     this.render();
   },
 

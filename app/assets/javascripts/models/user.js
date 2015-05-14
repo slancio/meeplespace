@@ -57,10 +57,10 @@ Meeplespace.Models.CurrentUser = Meeplespace.Models.User.extend({
   fireSessionEvent: function () {
     if (this.isSignedIn()){
       this.trigger("signIn");
-      console.log(this.currentUser.nickname + " is signed in!", this);
+      console.log(this.get('nickname') + " is signed in!", this);
     } else {
       this.trigger("signOut");
-      console.log(this.currentUser.nickname + " is signed out!", this);
+      console.log(this.get('nickname') + " is signed out!", this);
     }
   }
 });
