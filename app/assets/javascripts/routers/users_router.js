@@ -3,10 +3,12 @@ Meeplespace.Routers.UsersRouter = Backbone.Router.extend({
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
     this.collection = options.collection;
+    this.collection.fetch();
   },
 
   routes: {
     "signup": "userNew",
+    "users/new": "userNew",
     "users/:id": "userShow",
     "session/new": "signIn"
   },
@@ -14,16 +16,16 @@ Meeplespace.Routers.UsersRouter = Backbone.Router.extend({
   userNew: function () {
     if (!this._requireSignedOut()) { return; }
 
-    var model = new this._userCollection.model();
+    var model = new this.collection.model();
     var formView = new Meeplespace.Views.UsersForm({
-      collection: this._userCollection,
+      collection: this.collection,
       model: model
     });
     this._swapView(formView);
   },
 
   userShow: function (id) {
-    var model = this._userCollection.getOrFetch(id);
+    var model = this.collection.getOrFetch(id);
     var showView = new Meeplespace.Views.UsersShow({
       model: model
     });
