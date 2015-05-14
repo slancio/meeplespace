@@ -15,7 +15,10 @@ class City < ActiveRecord::Base
 
   has_many :users
 
-  has_many :hosts, -> { where(host: true) }
+  has_many :hosts, -> { where(host: true) },
+    class_name: "User",
+    foreign_key: :city_id,
+    primary_key: :id
 
   has_many :events, through: :hosts, autosave: false
 
