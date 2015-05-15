@@ -1,4 +1,5 @@
-if (current_user.events.concat(current_user.hosted_events).include?(event) || !event.location_privacy)
+if (current_user && (current_user.events.concat(current_user.hosted_events).include?(event)) || 
+    !event.location_privacy)
   json.(event, :id, :date, :location, :location_privacy, :slots, :host_id)
 else
   json.(event, :id, :date, :location_privacy, :slots, :host_id)
@@ -6,10 +7,10 @@ else
 end
 
 json.attendees event.attendees do |attendee|
-  if current_user.events.include?(event.id)
+  if (current_user && current_user.events.include?(event.id))
     json.id attendee.id
     json.nickname attendee.nickname
-  elsif current_user.hosted_events.include?(event.id)
+  elsif (current_user && current_user.hosted_events.include?(event.id))
     json.id attendee.id
     json.nickname attendee.nickname
     json.email attendee.email

@@ -1,4 +1,4 @@
-if (current_user.id == user.id)
+if (user == current_user)
   json.(user, :id, :nickname, :email, :city_id, :host)
   json.hosted_events user.hosted_events do |hosted_event|
     json.id hosted_event.id
