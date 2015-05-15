@@ -1,5 +1,5 @@
 json.(city, :id, :name)
-json.img_url image_path(city.img_url)
+json.img_url asset_path(city.img_url)
 json.hosts city.hosts do |host|
   json.id host.id
   json.nickname host.nickname
