@@ -1,25 +1,38 @@
 <form>
+  <h2>Sign Up</h2>
 
-  <label for="user-email">Email</label><br>
-  <input name="user[email]" id="user-email" type="text" value="<%= user.escape('email') %>" placeholder="example@example.com" required><br><br>
+  <ul>
+    <li>
+      <label for="user-email">Email</label>
+      <input name="user[email]" id="user-email" type="text" value="<%= user.escape('email') %>" placeholder="example@example.com" required>
+    </li>
 
-  <label for="user-nickname">Nickname</label><br>
-  <input name="user[nickname]" id="user-nickname" type="text" value="<%= user.escape('nickname') %>" placeholder="Super Cool Person" required><br><br>
+    <li>
+      <label for="user-nickname">Nickname</label>
+      <input name="user[nickname]" id="user-nickname" type="text" value="<%= user.escape('nickname') %>" placeholder="Super Cool Person" required>
+    </li>
 
-  <label for="user-password">Password</label><br>
-  <input name="user[password]" id="user-password" type="password" placeholder="enter your password" required><br><br>
+    <li>
+      <label for="user-password">Password</label>
+      <input name="user[password]" id="user-password" type="password" placeholder="enter your password" required>
+    </li>
 
-  <label for="user-city">City</label><br>
-  <select name="user[city_id]" id="user-city">
-    <% Meeplespace.cities.each(function (city) { %>
-      <option value="<%= city.id %>"
-         <% if (city.id === user.city_id) { %>
-          <%= "selected" %>
-         <% } %>
-      ><%= city.get('name') %>
-      </option>
-    <% }); %>
-  </select><br><br>
+    <li>
+      <label for="user-city">City</label>
+      <select name="user[city_id]" id="user-city">
+        <% Meeplespace.cities.each(function (city) { %>
+          <option value="<%= city.id %>"
+             <% if (city.id === user.city_id) { %>
+              <%= "selected" %>
+             <% } %>
+          ><%= city.get('name') %>
+          </option>
+        <% }); %>
+      </select>
+    </li>
 
-  <button>Let's Play Games!</button>
+    <li>
+      <button>Let's Play Games!</button>
+    </li>
+  </ul>
 </form>

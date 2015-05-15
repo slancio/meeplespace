@@ -84,3 +84,10 @@ Add Notifications to application. I'll also add the ability for the app to autom
 [phase-four]: ./docs/phases/phase4.md
 [phase-five]: ./docs/phases/phase5.md
 
+Color theme: https://color.adobe.com/1920-Leyendecker-color-theme-2522272/
+
+orange - beige blend:
+F87E5F
+F59677
+F2AF8E
+EFC7A6

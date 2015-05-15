@@ -2,20 +2,77 @@
   width: 960px;
   margin: auto;
   padding: 15px;
-  background: blue;
+  font-family: 'Roboto', sans-serif;
+  color: #3B3A35;
 }
 
-input[type="text"], input[type="email"], input[type="password"] {
-  width: 400px;
-  height: 30px;
-  font-size: 18px;
+form {
+  width: 520px;
+  margin: auto;
 }
 
-select {
+form h2 {
+  font-weight: 700;
+  font-size: 28px;
+  padding-bottom: 10px;
+}
+
+form ul {
+    list-style-type: none;
+    list-style-position: outside;
+    margin: 0;
+    padding: 0;
+}
+
+form li {
+    padding: 8px 0; 
+    position:relative;
+}
+
+form label {
+  font-weight: 500;
+  width: 120px;
+  margin-top: 5px;
+  display: inline-block;
+  float: left;
+  padding: 3px 0;
+}
+
+
+input:focus, select:focus, textarea:focus {  
+  outline: none;
+}
+
+:-moz-placeholder {
+  color: #5E3448;
+}
+ 
+::-webkit-input-placeholder {
+  color: #5E3448;
+}
+
+input, textarea, select, option{
   width: 400px;
+  box-sizing: border-box;
+  background: #F59677;
+  border-radius: 5px;
+  border-style: none;
+  text-align: center;
 }
 
 button {
   width: 400px;
-  font-size: 18px;
+  float: right;
+  box-sizing: border-box;
+  background: #F59677;
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+  height: 30px;
+  font-size: 14px;
+}
+
+button {
+  font-size: 20px;
+  font-weight: 700;
 }
