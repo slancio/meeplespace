@@ -1,13 +1,13 @@
 <form>
 
   <label for="user-email">Email</label><br>
-  <input name="user[email]" id="user-email" type="text" value="<%= user.escape('email') %>"><br><br>
+  <input name="user[email]" id="user-email" type="text" value="<%= user.escape('email') %>" placeholder="example@example.com" required><br><br>
 
   <label for="user-nickname">Nickname</label><br>
-  <input name="user[nickname]" id="user-nickname" type="text" value="<%= user.escape('nickname') %>"><br><br>
+  <input name="user[nickname]" id="user-nickname" type="text" value="<%= user.escape('nickname') %>" placeholder="Super Cool Person" required><br><br>
 
   <label for="user-password">Password</label><br>
-  <input name="user[password]" id="user-password" type="password"><br><br>
+  <input name="user[password]" id="user-password" type="password" placeholder="enter your password" required><br><br>
 
   <label for="user-city">City</label><br>
   <select name="user[city_id]" id="user-city">
