@@ -36,9 +36,9 @@ class User < ActiveRecord::Base
     primary_key: :id,
     inverse_of: :event_host
 
-  def self.find_by_credentials(user_params)
-    user = User.find_by(email: user_params[:email])
-    user.try(:is_password?, user_params[:password]) ? user : nil
+  def self.find_by_credentials(email, password)
+    user = User.find_by(email: email)
+    user.try(:is_password?, password) ? user : nil
   end
 
   def password=(password)
