@@ -1,4 +1,21 @@
 .content {
   width: 960px;
   margin: auto;
+  padding: 15px;
+  background: blue;
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+  width: 400px;
+  height: 30px;
+  font-size: 18px;
+}
+
+select {
+  width: 400px;
+}
+
+button {
+  width: 400px;
+  font-size: 18px;
 }

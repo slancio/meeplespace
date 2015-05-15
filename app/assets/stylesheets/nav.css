@@ -1,16 +1,18 @@
 .nav {
-  display: block;
   width: 960px;
+  padding: 0;
   margin: auto;
 }
 
+
 .nav-logo {
-  width: 500px;
+  width: 400px;
 }
 
-.logo-img {
+.nav-logo a {
+  display: block;
+  padding: 6px 10px;
   float: left;
-  padding: 10px;
 }
 
 .logo-img img {
@@ -19,20 +21,25 @@
 }
 
 .logo-text {
-  float: left;
-  padding: 10px;
   font-family: 'Titillium Web', sans-serif;
   font-size: 28px;
   color: #000;
+  padding-top: 3px;
 }
 
 .nav-items {
   float: right;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+}
+
+.nav-item a {
+  display: block;
+  padding: 12px 8px 13px 8px;  
 }
 
 .nav-item {
   float: left;
-  padding: 15px;
 }
 
 .nav-item:hover {
