@@ -1,8 +1,8 @@
 Meeplespace.Views.UserNew = Backbone.View.extend({
 
   initialize: function (options) {
-    this.listenTo(this.model, "sync change", this.render);
     this.listenTo(Meeplespace.cities, "sync", this.render);
+    this.listenTo(this.model, "sync change", this.render);
   },
 
   template: JST['users/new'],

@@ -54,7 +54,7 @@ input:focus, select:focus, textarea:focus {
 input, textarea, select, option{
   width: 400px;
   box-sizing: border-box;
-  background: #F59677;
+  background: #F2AF8E;
   border-radius: 5px;
   border-style: none;
   text-align: center;
@@ -64,7 +64,10 @@ button {
   width: 400px;
   float: right;
   box-sizing: border-box;
-  background: #F59677;
+  background: #F2AF8E;
+  border-style: none;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.25);
 }
 
 input[type="text"], input[type="email"], input[type="password"] {
