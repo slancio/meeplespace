@@ -1,7 +1,7 @@
 <ul class="cities group">
   <% cities.each(function (city) { %>
     <li>
-      <a href="#/cities/<%= city.id %>"><img src="/assets<%= city.get('img_url') %>"><strong><%= city.get('name') %></strong></a>
+      <a href="#/cities/<%= city.id %>"><img src="<%= city.get('img_url') %>"><strong><%= city.get('name') %></strong></a>
     </li>
   <% }); %> 
 </ul>
