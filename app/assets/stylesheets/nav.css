@@ -1,0 +1,41 @@
+.nav {
+  display: block;
+  width: 960px;
+  margin: auto;
+}
+
+.nav-logo {
+  width: 500px;
+}
+
+.logo-img {
+  float: left;
+  padding: 10px;
+}
+
+.logo-img img {
+  width: 166px;
+  height: 30px;
+}
+
+.logo-text {
+  float: left;
+  padding: 10px;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 28px;
+  color: #000;
+}
+
+.nav-items {
+  float: right;
+}
+
+.nav-item {
+  float: left;
+  padding: 15px;
+}
+
+.nav-item:hover {
+  background: #000;
+  color: #fff;
+}

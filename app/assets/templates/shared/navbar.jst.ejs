@@ -1,11 +1,13 @@
-<ul class="nav-logo">
-  <li class="logo">
-    <a href="#">
-      <%= meeplespacelogo %><br>
-      <h1>meeple.space</h1>
-    </a>
-  </li>
-</ul>
+<a href="#">
+  <ul class="nav-logo">
+    <li class="logo-img">
+      <%= meeplespacelogo %>
+    </li>
+    <li class="logo-text">
+      <h1>meeplespace</h1>
+    </li>
+  </ul>
+</a>
 <ul class="nav-items">
   <li class="nav-item"><a href="#cities">Cities</a></li>
   <% if (Meeplespace.currentUser.isSignedIn()) { %>

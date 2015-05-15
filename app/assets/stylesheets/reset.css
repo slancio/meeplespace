@@ -1,0 +1,39 @@
+html, body, header, footer,
+nav, section, aside, article, figure, figcaption,
+h1, h2, h3, h4, h5, h6,
+p, blockquote, q, pre, a, img,
+address, small, strike, strong, ol, ul, li {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: inherit;
+  font-size: 100%;
+  font: inherit;
+  text-decoration: inherit;
+  color: inherit;
+  background: transparent;
+  vertical-align: baseline;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
