@@ -5,35 +5,36 @@ Meeplespace.Models.User = Backbone.Model.extend({
     var json = { user: _.clone(this.attributes) };
     return json;
   },
-  // hosted_events: function () {
-  //   if (!this._hosted_events) {
-  //     this._hosted_events = new Meeplespace.Collections.Events([], { user: this });
-  //   }
 
-  //   return this._hosted_events;
-  // },
+  hostedEvents: function () {
+    if (!this._hostedEvents) {
+      this._hostedEvents = new Meeplespace.Collections.Events([], { user: this });
+    }
 
-  // events: function () {
-  //   if (!this._events) {
-  //     this._events = new Meeplespace.Collections.Events([], { user: this });
-  //   }
+    return this._hostedEvents;
+  },
 
-  //   return this._events;
-  // },
+  myEvents: function () {
+    if (!this._myEvents) {
+      this._myEvents = new Meeplespace.Collections.Events([], { user: this });
+    }
 
-  // parse: function (response) {
-  //   if (response.hosted_events) {
-  //     this.hosted_events().set(response.hosted_events);
-  //     delete response.hosted_events;
-  //   }
+    return this._myEvents;
+  },
 
-  //   if (response.events) {
-  //     this.events().set(response.events);
-  //     delete response.events;
-  //   }
+  parse: function (response) {
+    if (response.hosted_events) {
+      this.hostedEvents().set(response.hosted_events);
+      delete response.hosted_events;
+    }
 
-  //   return response;
-  // }
+    if (response.attended_events) {
+      this.myEvents().set(response.attended_events);
+      delete response.attended_events;
+    }
+
+    return response;
+  }
 
 });
 

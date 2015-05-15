@@ -4,7 +4,7 @@ Meeplespace.Collections.Users = Backbone.Collection.extend({
 
   getOrFetch: function (id) {
     var users = this;
-    var user = this.get(id);
+    var user = users.get(id);
 
     if (!user) {
       user = new this.model({ id: id });

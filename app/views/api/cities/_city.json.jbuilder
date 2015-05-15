@@ -3,7 +3,7 @@ json.hosts city.hosts do |host|
   json.id host.id
   json.nickname host.nickname
 end
-json.events city.events do |event|
+json.city_events city.events do |event|
   json.id event.id
   json.data event.date
   if ((current_user && current_user.events.concat(current_user.hosted_events).include(event)) || 

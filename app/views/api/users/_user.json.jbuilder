@@ -7,7 +7,7 @@ if (user == current_user)
     json.location_privacy hosted_event.location_privacy
     json.host_id hosted_event.host_id
   end
-  json.events user.events do |event|
+  json.attended_events user.events do |event|
     json.id event.id
     json.date event.date
     json.location event.location

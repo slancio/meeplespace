@@ -9,13 +9,13 @@ Meeplespace.Models.City = Backbone.Model.extend({
     return this._hosts;
   },
 
-  // events: function () {
-  //   if (!this._events) {
-  //     this._events = new Meeplespace.Collections.Events([], { city: this });
-  //   }
+  cityEvents: function () {
+    if (!this._cityEvents) {
+      this._cityEvents = new Meeplespace.Collections.Events([], { city: this });
+    }
 
-  //   return this._events;
-  // },
+    return this._cityEvents;
+  },
 
   parse: function (response) {
     if (response.hosts) {
@@ -23,10 +23,10 @@ Meeplespace.Models.City = Backbone.Model.extend({
       delete response.hosts;
     }
 
-    // if (response.events) {
-    //   this.events().set(response.events);
-    //   delete response.events;
-    // }
+    if (response.city_events) {
+      this.cityEvents().set(response.city_vents);
+      delete response.city_events;
+    }
 
     return response;
   }

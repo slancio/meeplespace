@@ -4,7 +4,7 @@ Meeplespace.Collections.Cities = Backbone.Collection.extend({
 
   getOrFetch: function (id) {
     var cities = this;
-    var city = this.get(id);
+    var city = cities.get(id);
 
     if (!city) {
       city = new this.model({ id: id });
