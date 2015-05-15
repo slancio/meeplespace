@@ -10,6 +10,7 @@ Meeplespace.Routers.UsersRouter = Backbone.Router.extend({
     "signup": "userNew",
     "users/new": "userNew",
     "users/:id": "userShow",
+    "users/:id/edit": "userEdit",
     "session/new": "signIn"
   },
 
@@ -17,19 +18,31 @@ Meeplespace.Routers.UsersRouter = Backbone.Router.extend({
     if (!this._requireSignedOut()) { return; }
 
     var model = new this.collection.model();
-    var formView = new Meeplespace.Views.UsersForm({
+    var newView = new Meeplespace.Views.UserNew({
       collection: this.collection,
       model: model
     });
-    this._swapView(formView);
+    this._swapView(newView);
   },
 
   userShow: function (id) {
     var model = this.collection.getOrFetch(id);
-    var showView = new Meeplespace.Views.UsersShow({
+    var showView = new Meeplespace.Views.UserShow({
       model: model
     });
     this._swapView(showView);
+  },
+
+  userEdit: function (id) {
+    var callback = this.userEdit.bind(this, id);
+    if (!this._requireSignedIn(callback)) { return; }
+
+    var model = this.collection.getOrFetch(id);
+    var editView = new Meeplespace.Views.UserEdit({
+      collection: this.collection,
+      model: model
+    });
+    this._swapView(editView);
   },
 
   signIn: function (callback) {
@@ -40,7 +53,7 @@ Meeplespace.Routers.UsersRouter = Backbone.Router.extend({
   },
 
   _requireSignedIn: function (callback) {
-    if (!Meeplespace.currentUser.isSigned()) {
+    if (!Meeplespace.currentUser.isSignedIn()) {
       callback = callback || this._goHome.bind(this);
       this.signIn(callback);
 

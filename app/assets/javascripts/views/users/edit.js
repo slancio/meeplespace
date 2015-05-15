@@ -1,11 +1,11 @@
-Meeplespace.Views.UsersForm = Backbone.View.extend({
+Meeplespace.Views.UserEdit = Backbone.View.extend({
 
   initialize: function (options) {
     this.listenTo(this.model, "sync change", this.render);
     this.listenTo(Meeplespace.cities, "sync", this.render);
   },
 
-  template: JST['users/form'],
+  template: JST['users/edit'],
 
   events: {
     'submit form': 'submit'

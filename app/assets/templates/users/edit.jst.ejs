@@ -1,0 +1,33 @@
+<form>
+  <h2>Account</h2>
+
+  <ul>
+    <li>
+      <label for="user-email">Email</label>
+      <input name="user[email]" id="user-email" type="text" value="<%= user.escape('email') %>" required>
+    </li>
+
+    <li>
+      <label for="user-nickname">Nickname</label>
+      <input name="user[nickname]" id="user-nickname" type="text" value="<%= user.escape('nickname') %>" required>
+    </li>
+
+    <li>
+      <label for="user-city">City</label>
+      <select name="user[city_id]" id="user-city">
+        <% Meeplespace.cities.each(function (city) { %>
+          <option value="<%= city.id %>"
+             <% if (city.id === user.city_id) { %>
+              <%= "selected" %>
+             <% } %>
+          ><%= city.get('name') %>
+          </option>
+        <% }); %>
+      </select>
+    </li>
+
+    <li>
+      <button>Update Account</button>
+    </li>
+  </ul>
+</form>
