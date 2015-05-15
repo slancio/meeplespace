@@ -5,7 +5,6 @@ Meeplespace.Models.User = Backbone.Model.extend({
     var json = { user: _.clone(this.attributes) };
     return json;
   },
-
   // hosted_events: function () {
   //   if (!this._hosted_events) {
   //     this._hosted_events = new Meeplespace.Collections.Events([], { user: this });
@@ -35,6 +34,7 @@ Meeplespace.Models.User = Backbone.Model.extend({
 
   //   return response;
   // }
+
 });
 
 Meeplespace.Models.CurrentUser = Meeplespace.Models.User.extend({
