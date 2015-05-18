@@ -20,6 +20,6 @@ class City < ActiveRecord::Base
     foreign_key: :city_id,
     primary_key: :id
 
-  has_many :events, through: :hosts
+  has_many :events, through: :hosts, source: :hosted_events
 
 end

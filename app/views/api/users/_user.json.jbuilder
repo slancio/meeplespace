@@ -18,7 +18,7 @@ else
   json.hosted_events user.hosted_events do |hosted_event|
     json.id hosted_event.id
     json.date hosted_event.date
-    unless location_privacy
+    unless hosted_event.location_privacy
       json.location hosted_event.location
     else
       json.location "Location will be emailed to attendees"
