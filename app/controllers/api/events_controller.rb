@@ -19,7 +19,6 @@ module Api
 
     def create
       @event = current_user.hosted_events.new(event_params)
-      @event.city_id = current_user.city_id
 
       if @event.save
         render :show
@@ -46,7 +45,9 @@ module Api
     private
 
       def require_host
-        render json: ["You can't perform this action if you are not a host."], status: 403
+        unless current_user.host 
+          render json: ["You can't perform this action if you are not a host."], status: 403
+        end
       end
 
       def event_params

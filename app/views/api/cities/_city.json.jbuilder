@@ -7,8 +7,10 @@ end
 json.city_events city.events do |event|
   json.id event.id
   json.data event.date
-  if ((current_user && current_user.events.concat(current_user.hosted_events).include(event)) || 
-      !event.location_privacy)
+  if ((current_user && (
+      current_user.events.include?(event) ||
+      current_user.hosted_events.include?(event))
+      ) || !event.location_privacy)
     json.location event.location
   else
     json.location "Location will be emailed to attendees"
