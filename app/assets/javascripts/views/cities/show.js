@@ -1,4 +1,4 @@
-Meeplespace.Views.CityShow = Backbone.View.extend({
+Meeplespace.Views.CityShow = Backbone.CompositeView.extend({
 
   initialize: function (options) {
     this._hosts = this.model.hosts();
@@ -6,20 +6,11 @@ Meeplespace.Views.CityShow = Backbone.View.extend({
     this._cityEvents = this.model.cityEvents();
     this._cityEvents.fetch();
 
-    this.listenTo(this.model, "sync", function () {
-      var that = this;
-      this.listenTo(this._hosts, "sync", function () {
-        that._hosts.each(function (host) {
-          that.addHostView(host);
-        });
-        that.listenTo(this._cityEvents, "sync", function () {
-          that._cityEvents.each(function (cityEvent) {
-            that.addEventView(cityEvent);
-          });
-          that.render();
-        });
-      });
-    });
+    this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this._hosts, "add", this.addHostView);
+    this._hosts.each(this.addHostView.bind(this));
+    this.listenTo(this._cityEvents, "add", this.addEventView);
+    this._cityEvents.each(this.addEventView.bind(this));
   },
 
   template: JST['cities/show'],
@@ -28,7 +19,7 @@ Meeplespace.Views.CityShow = Backbone.View.extend({
 
   addHostView: function (host) {
     this._hostView = new Meeplespace.Views.HostLink({ model: host });
-    this.$('.hosts').append(this._hostView);
+    this.addSubview('.hosts', this._hostView);
   },
 
   addEventView: function (cityEvent) {
@@ -36,7 +27,7 @@ Meeplespace.Views.CityShow = Backbone.View.extend({
       model: cityEvent,
       eventHost: cityEvent.eventHost()
     });
-    this.$('.events').append(this._eventView);
+    this.addSubview('.events', this._eventView);
   },
 
   render: function () {
@@ -46,6 +37,7 @@ Meeplespace.Views.CityShow = Backbone.View.extend({
       cityEvents: this._cityEvents
     });
     this.$el.html(content);
+    this.attachSubviews();
 
     return this;
   }
