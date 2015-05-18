@@ -5,6 +5,10 @@ Meeplespace.Views.EventLink = Backbone.View.extend({
 
   template: JST['shared/event_link'],
 
+  initialize: function (options) {
+    this.render();
+  },
+
   render: function () {
     var content = this.template({
       cityEvent: this.model,

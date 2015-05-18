@@ -2,12 +2,23 @@ Meeplespace.Views.CityShow = Backbone.View.extend({
 
   initialize: function (options) {
     this._hosts = this.model.hosts();
+    this._hosts.fetch();
     this._cityEvents = this.model.cityEvents();
+    this._cityEvents.fetch();
 
     this.listenTo(this.model, "sync", function () {
-      this.listenTo(this._hosts, "add", this.addHostView);
-      this.listenTo(this._cityEvents, "add", this.addEventView);
-      this.render();
+      var that = this;
+      this.listenTo(this._hosts, "sync", function () {
+        that._hosts.each(function (host) {
+          that.addHostView(host);
+        });
+        that.listenTo(this._cityEvents, "sync", function () {
+          that._cityEvents.each(function (cityEvent) {
+            that.addEventView(cityEvent);
+          });
+          that.render();
+        });
+      });
     });
   },
 
@@ -31,8 +42,8 @@ Meeplespace.Views.CityShow = Backbone.View.extend({
   render: function () {
     var content = this.template({
       user: this.model,
-      hosts: this.model.hosts(),
-      cityEvents: this.model.cityEvents()
+      hosts: this._hosts,
+      cityEvents: this._cityEvents
     });
     this.$el.html(content);
 

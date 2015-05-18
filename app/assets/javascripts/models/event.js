@@ -6,7 +6,7 @@ Meeplespace.Models.Event = Backbone.Model.extend({
       this._attendees = new Meeplespace.Collections.Users([], { event: this });
     }
 
-    return this._atteendees;
+    return this._attendees;
   },
 
   eventHost: function () {
