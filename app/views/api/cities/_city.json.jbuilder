@@ -6,7 +6,7 @@ json.hosts city.hosts do |host|
 end
 json.city_events city.events do |event|
   json.id event.id
-  json.data event.date
+  json.date event.date
   if ((current_user && (
       current_user.events.include?(event) ||
       current_user.hosted_events.include?(event))

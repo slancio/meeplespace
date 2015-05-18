@@ -24,7 +24,7 @@ Meeplespace.Models.City = Backbone.Model.extend({
     }
 
     if (response.city_events) {
-      this.cityEvents().set(response.city_vents);
+      this.cityEvents().set(response.city_events);
       delete response.city_events;
     }
 

@@ -6,13 +6,13 @@ Meeplespace.Views.EventLink = Backbone.View.extend({
   template: JST['shared/event_link'],
 
   initialize: function (options) {
-    this.render();
+    this._hosts = options.hosts;
   },
 
   render: function () {
     var content = this.template({
       cityEvent: this.model,
-      eventHost: this.model.eventHost()
+      eventHost: this._hosts.get(this.model.get('host_id'))
     });
     this.$el.html(content);
 
