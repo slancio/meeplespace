@@ -18,7 +18,8 @@ module Api
     end
 
     def create
-      @event = current_user.hosted_events.new(board_params)
+      @event = current_user.hosted_events.new(event_params)
+      @event.city_id = current_user.city_id
 
       if @event.save
         render :show
@@ -49,9 +50,8 @@ module Api
       end
 
       def event_params
-        params.require(:event).permit(:id, :date, :location,
-                                      :location_privacy, :slots,
-                                      :host_id, :game_id, :city_id)
+        params.require(:event).permit(:date, :location, :location_privacy,
+                                      :slots, :game_id)
       end
   end
 end
