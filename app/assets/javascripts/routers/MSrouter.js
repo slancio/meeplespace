@@ -53,6 +53,15 @@ Meeplespace.Routers.MSRouter = Backbone.Router.extend({
     return true;
   },
 
+  _requireNotHost: function () {
+    if (Meeplespace.currentUser.get('host') !== true) {
+      return false;
+    }
+
+    Backbone.history.navigate("", { trigger: true });
+    return true;
+  },
+
   _requireMembership: function(collection) {
     if (collection.contains(Meeplespace.currentUser)) {
       return false;

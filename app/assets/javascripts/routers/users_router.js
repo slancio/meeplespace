@@ -5,6 +5,7 @@ Meeplespace.Routers.UsersRouter = Meeplespace.Routers.MSRouter.extend({
     "users/new": "userNew",
     "users/:id": "userShow",
     "users/:id/edit": "userEdit",
+    "users/:id/host": "userHost",
     "users/:id/profile": "userProfile",
     "session/new": "signIn"
   },
@@ -39,6 +40,17 @@ Meeplespace.Routers.UsersRouter = Meeplespace.Routers.MSRouter.extend({
       model: model
     });
     this._swapView(editView);
+  },
+
+  userHost: function (id) {
+    if (this._requireAccess(id)) { return; }
+    if (this._requireNotHost(id)) { return; }
+
+    var model = this.collection.getOrFetch(id);
+    var hostView = new Meeplespace.Views.UserHost({
+      model: model
+    });
+    this._swapView(hostView);
   },
 
   userProfile: function (id) {

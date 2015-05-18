@@ -1,9 +1,11 @@
 <h2>Welcome, <%= user.escape('nickname') %></h2>
 
 <ul class="account-links">
-  <li>
-    
-  </li>
+  <% if (!Meeplespace.currentUser.get('host')) { %>
+    <li class="link">
+      <a href="#users/<%= Meeplespace.currentUser.id %>/host">Become A Host</a>
+    </li>
+  <% } %>
   <li>
   </li>
   <li class="link">
