@@ -4,10 +4,9 @@ Meeplespace.Views.UserProfile = Backbone.CompositeView.extend({
 
     var that = this;
     this.listenTo(this.model, "sync change", function () {
-      that.listenTo(that._hostedEvents, "add", that.addEventView);
+      that._hostedEvents.each(that.addEventView.bind(that));
       that.render();
     });
-    this._hostedEvents.each(this.addEventView.bind(this));
   },
 
   template: JST['users/profile'],
@@ -15,6 +14,10 @@ Meeplespace.Views.UserProfile = Backbone.CompositeView.extend({
   className: 'user-profile',
 
   addEventView: function (hostEvent) {
+    if (this._hostedEvents.where(hostEvent) !== []) {
+      this.removeModelSubview('.events', hostEvent);
+    }
+    
     this._eventView = new Meeplespace.Views.EventLink({
       model: hostEvent,
       myHost: this.model
@@ -25,6 +28,7 @@ Meeplespace.Views.UserProfile = Backbone.CompositeView.extend({
   render: function () {
     var content = this.template({ user: this.model });
     this.$el.html(content);
+    this.attachSubviews();
 
     return this;
   }

@@ -22,7 +22,7 @@ Meeplespace.Views.CityShow = Backbone.CompositeView.extend({
   addEventView: function (cityEvent) {
     this._eventView = new Meeplespace.Views.EventLink({
       model: cityEvent,
-      myHost: this._hosts.get(this.model.get('host_id'))
+      myHost: this._hosts.get(cityEvent.get('host_id'))
     });
     this.addSubview('.events', this._eventView);
   },
