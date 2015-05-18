@@ -17,9 +17,9 @@
       <select name="user[city_id]" id="user-city">
         <% Meeplespace.cities.each(function (city) { %>
           <option value="<%= city.id %>"
-             <% if (city.id === user.city_id) { %>
+            <% if (city.id === Meeplespace.currentUser.get('city_id')) { %>
               <%= "selected" %>
-             <% } %>
+            <% } %>
           ><%= city.get('name') %>
           </option>
         <% }); %>
