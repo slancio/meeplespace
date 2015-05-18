@@ -1,6 +1,8 @@
 module Api
   class UsersController < ApiController
   
+    wrap_parameters format: :json
+
     def index
       @users = User.where({ host: true });
       render :index

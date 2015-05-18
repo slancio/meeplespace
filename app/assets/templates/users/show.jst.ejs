@@ -1,8 +1,12 @@
-<ul>
+<h2>Welcome, <%= user.escape('nickname') %></h2>
+
+<ul class="account-links">
   <li>
-    <%= user.escape('nickname') %>
+    
   </li>
   <li>
-    <%= user.escape('email') %>
+  </li>
+  <li class="link">
+    <a href="#users/<%= Meeplespace.currentUser.id %>/edit">Account Details</a>
   </li>
 </ul>

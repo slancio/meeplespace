@@ -27,10 +27,11 @@ Meeplespace.Views.UserEdit = Backbone.View.extend({
 
     this.model.set(userData);
     this.model.save({}, {
+      patch: true,
       success: function () {
         Meeplespace.currentUser.fetch();
         that.collection.add(that.model, { merge: true });
-        Backbone.history.navigate("", { trigger: true });
+        Backbone.history.navigate("users/" + that.model.id, { trigger: true });
       },
       error: function (data) {
         alert("The form contained invalid data");

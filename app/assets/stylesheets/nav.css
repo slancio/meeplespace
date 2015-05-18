@@ -38,16 +38,16 @@
   font-weight: 500;
 }
 
+.nav-item {
+  float: left;
+}
+
 .nav-item a {
   display: block;
   padding: 12px 8px 13px 8px;  
 }
 
-.nav-item {
-  float: left;
-}
-
-.nav-item:hover {
+.nav-item a:hover {
   color: #20457C;
   text-decoration: underline;
   font-weight: 700;
