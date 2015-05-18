@@ -7,7 +7,7 @@ Meeplespace.Routers.EventsRouter = Meeplespace.Routers.MSRouter.extend({
   },
 
   eventNew: function () {
-    var callback = this.eventNew.bind(this, id);
+    var callback = this.eventNew.bind(this);
     if (!this._requireSignedIn(callback)) { return; }
     if (this._requireHost()) { return; }
 

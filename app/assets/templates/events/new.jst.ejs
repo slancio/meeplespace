@@ -1,0 +1,52 @@
+<form>
+  <h2>New Event</h2>
+
+  <ul>
+    <li>
+      <label for="event-date">Date</label>
+      <input name="event[date]" id="event-date" type="datetime-local" value="<%= myEvent.escape('date') %>" required>
+    </li>
+
+    <li>
+      <label for="event-location">Location</label>
+      <input name="event[location]" id="event-location" type="text" value="<%= myEvent.escape('location') %>" placeholder="Somewhere Awesome" required>
+    </li>
+
+    <li>
+      <label for="event-privacy">Hide Location?</label>
+      <select name="event[location-privacy]" id="event-privacy">
+        <option value="true"
+          <% if (myEvent.location_privacy) { %><%= "selected" %><% } %>
+        >Yes</option>
+        <option value="false"
+          <% if (!myEvent.location_privacy) { %><%= "selected" %><% } %>
+        >No</option>
+      </select>
+    </li>
+
+    <li>
+      <label for="event-slots">Slots</label>
+      <select name="event[slots]" id="event-slots">
+        <% for (var i = 1; i < 144; i++) { %>
+          <option value="<%= i %>"
+            <% if (myEvent.slots === i) { %>
+              <%= "selected" %>
+            <% } %>
+          ><%= i %>
+          </option>
+        <% } %>
+      </select>
+    </li>
+
+    <li>
+      <label for="event-game">Game</label>
+      <select name="event[game_id] id="event-game">
+        <option value="1">1</option>
+      </select>
+    </li>
+
+    <li>
+      <button>Host Game!</button>
+    </li>
+  </ul>
+</form>

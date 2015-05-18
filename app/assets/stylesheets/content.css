@@ -66,7 +66,7 @@ select {
   color: #5E3448;
 }
 
-select:hover {
+select:hover, button:hover, input[type="datetime-local"]:hover {
   cursor: pointer;
 }
 
@@ -86,7 +86,6 @@ button:hover {
   border-style: outset;
   box-shadow: 0 0 0 0;
   font-size: 18px;
-  cursor: pointer;
 }
 
 input[type="text"], input[type="email"], input[type="password"] {
@@ -96,7 +95,6 @@ input[type="text"], input[type="email"], input[type="password"] {
 
 
 .cities {
-
   width: 640px;
   margin: auto;
 }

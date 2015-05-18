@@ -25,7 +25,7 @@ long_desc       | text      |
 column name      | data type | details
 -----------------|-----------|-----------------------
 id               | integer   | not null, primary key
-date             | date      | not null
+date             | datetime  | not null
 location         | string    | not null
 location_privacy | boolean   | not null, default false
 slots            | integer   | not null
