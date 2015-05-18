@@ -13,7 +13,7 @@ Meeplespace.Routers.CitiesRouter = Meeplespace.Routers.MSRouter.extend({
   cityShow: function (id) {
     var model = this.collection.getOrFetch(id);
     var showView = new Meeplespace.Views.CityShow({ model: model });
-    this._swapView(cityShow);
+    this._swapView(showView);
   }
 
 });
