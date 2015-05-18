@@ -11,6 +11,8 @@
 #  updated_at      :datetime         not null
 #  city_id         :integer          not null
 #  host            :boolean          default(FALSE), not null
+#  short_desc      :text
+#  long_desc       :text
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

@@ -19,9 +19,9 @@ Users can also:
 - [X] Create sessions (log in)
 - [ ] Sign up for Upcoming Event Slots
 - [ ] Sign up for Upcoming Event Waitlists
-- [ ] Sign up to Host Events
+- [X] Sign up to Host Events
 - [ ] View their Event Calendar
-- [ ] Create a Public Profile
+- [X] Create a Public Profile
 
 Hosts can also:
 

@@ -157,7 +157,9 @@ input[type="text"], input[type="email"], input[type="password"] {
   letter-spacing: 1.3px;
 }
 
-.city-main > a, .user-main > a {
+.city-main > a,
+.user-main > a,
+.home-page > a {
   display: block;
   padding: 10px;
   width: 420px;
@@ -171,7 +173,9 @@ input[type="text"], input[type="email"], input[type="password"] {
   box-shadow: 0 1px #2A3287, 0 2px #2A3287, 0 3px #2A3287, 0 4px #2A3287, 0 5px #2A3287, 0 6px #2A3287;
 }
 
-.city-main > a:hover, .user-main > a:hover {
+.city-main > a:hover,
+.user-main > a:hover,
+.home-page > a:hover {
   background: #2A3287;
   box-shadow: 0 1px #20457C, 0 2px #20457C, 0 3px #20457C, 0 4px #20457C, 0 5px #20457C, 0 6px #20457C;
 }

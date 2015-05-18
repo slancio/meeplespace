@@ -6,6 +6,7 @@ column name | data type | details
 id          | integer   | not null, primary key
 name        | string    | not null
 img_url     | string    | not null
+description | text      |
 
 ## users
 column name     | data type | details

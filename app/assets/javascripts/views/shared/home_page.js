@@ -5,7 +5,7 @@ Meeplespace.Views.HomePage = Backbone.View.extend({
     this.render();
   },
 
-  events: {},
+  className: 'home-page',
 
   template: JST['shared/home_page'],
 
