@@ -5,6 +5,7 @@ Meeplespace.Routers.UsersRouter = Meeplespace.Routers.MSRouter.extend({
     "users/new": "userNew",
     "users/:id": "userShow",
     "users/:id/edit": "userEdit",
+    "users/:id/profile": "userProfile",
     "session/new": "signIn"
   },
 
@@ -38,5 +39,13 @@ Meeplespace.Routers.UsersRouter = Meeplespace.Routers.MSRouter.extend({
       model: model
     });
     this._swapView(editView);
+  },
+
+  userProfile: function (id) {
+    var model = this.collection.getOrFetch(id);
+    var profileView = new Meeplespace.Views.UserProfile({
+      model: model
+    });
+    this._swapView(profileView);
   }
 });
