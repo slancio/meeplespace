@@ -21,7 +21,10 @@ Meeplespace.Views.CityShow = Backbone.View.extend({
   },
 
   addEventView: function (cityEvent) {
-    this._eventView = new Meeplespace.Views.EventLink({ model: cityEvent });
+    this._eventView = new Meeplespace.Views.EventLink({
+      model: cityEvent,
+      eventHost: cityEvent.eventHost()
+    });
     this.$('.events').append(this._eventView);
   },
 

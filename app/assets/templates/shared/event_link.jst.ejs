@@ -1,0 +1,4 @@
+<strong><%= cityEvent.escape('datetime') %></strong>
+<strong><%= cityEvent.escape('location') %></strong>
+<strong><%= cityEvent.get('slots') %></strong>
+<img src="<%= eventHost.get('img_url') %>"><a href="users/<%= eventHost.id %>"><%= eventHost.escape('nickname')% ></a>
