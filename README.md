@@ -9,14 +9,14 @@ Meeple.space is a clone of Meetup for playing board games built on Rails and Bac
 
 Non-Users can:
 
-- [ ] View Cities
-- [ ] View Hosts
-- [ ] View Upcoming Events
-- [ ] Create accounts
+- [X] View Cities
+- [X] View Hosts
+- [X] View Upcoming Events
+- [X] Create accounts
 
 Users can also:
 
-- [ ] Create sessions (log in)
+- [X] Create sessions (log in)
 - [ ] Sign up for Upcoming Event Slots
 - [ ] Sign up for Upcoming Event Waitlists
 - [ ] Sign up to Host Events
@@ -25,10 +25,10 @@ Users can also:
 
 Hosts can also:
 
-- [ ] Create an Event
-- [ ] Give Event a Date and Location
+- [X] Create an Event
+- [X] Give Event a Date and Location
 - [ ] Set an Event's Game_ID(BGG XML API)
-- [ ] Make an event location public or private to non-attendees
+- [X] Make an event location public or private to non-attendees
 - [ ] Send Event Reminders
 
 
