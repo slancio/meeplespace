@@ -4,13 +4,8 @@ module Api
     before_action :require_host, except: [:show, :index]
 
     def index
-      if current_user
-        @events = current_user.city.events
-      else
-        @events = Event.all
-      end
-      # This BADLY needs to be fixed.
-      # Probably will need to set a city with a cookie whether user is logged in or not
+      @events = current_user.events
+      @hosts_events = current_user.hosted_events
       render :index
     end
 
