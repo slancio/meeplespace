@@ -1,4 +1,7 @@
 <strong>Join us for an upcoming game session</strong>
+<% if (Meeplespace.currentUser.escape('host')) { %>
+  <a href="#events/new" class="host-new">Host a Game Session</a>
+<% } %>
 <ul class="events"></ul>
 <strong>Hosts make your game nights awesome</strong>
 <ul class="hosts"></ul>

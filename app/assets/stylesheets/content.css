@@ -77,15 +77,16 @@ button {
   background: #F2AF8E;
   border-style: none;
   border-radius: 5px;
-  box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.25);
-  font-size: 20px;
+  font-size: 18px;
+  padding: 2px; 
   font-weight: 700;
+  box-shadow: 0 1px #F59677, 0 2px #F59677, 0 3px #F59677, 0 4px #F59677, 0 5px #F59677, 0 6px #F59677;
 }
 
 button:hover {
-  border-style: outset;
-  box-shadow: 0 0 0 0;
   font-size: 18px;
+  background: #F59677;
+  box-shadow: 0 1px #F2AF8E, 0 2px #F2AF8E, 0 3px #F2AF8E, 0 4px #F2AF8E, 0 5px #F2AF8E, 0 6px #F2AF8E;
 }
 
 input[type="text"], input[type="email"], input[type="password"] {
@@ -150,4 +151,23 @@ input[type="text"], input[type="email"], input[type="password"] {
   font-size: 18px;
   color: #ECDFBD;
   letter-spacing: 1.3px;
+}
+
+.city-main > a {
+  display: block;
+  padding: 10px;
+  width: 420px;
+  margin: 20px auto;
+  background: #2A6A87;
+  color: #EDCFBD;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 18px;
+  border-radius: 5px;
+  box-shadow: 0 1px #2A3287, 0 2px #2A3287, 0 3px #2A3287, 0 4px #2A3287, 0 5px #2A3287, 0 6px #2A3287;
+}
+
+.city-main > a:hover {
+  background: #2A3287;
+  box-shadow: 0 1px #20457C, 0 2px #20457C, 0 3px #20457C, 0 4px #20457C, 0 5px #20457C, 0 6px #20457C;
 }
