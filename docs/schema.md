@@ -9,18 +9,18 @@ img_url     | string    | not null
 description | text      |
 
 ## users
-column name     | data type | details
-----------------|-----------|-----------------------
-id              | integer   | not null, primary key
-email           | string    | not null, unique
-nickname        | string    | not null
-password_digest | string    | not null
-session_token   | string    | not null, unique
-city_id         | integer   | not null, foreign key
-host            | boolean   | not null, default false
-avatar_url      | string    | not null
-short_desc      | text      |
-long_desc       | text      |
+column name     | data type  | details
+----------------|------------|-----------------------
+id              | integer    | not null, primary key
+email           | string     | not null, unique
+nickname        | string     | not null
+password_digest | string     | not null
+session_token   | string     | not null, unique
+city_id         | integer    | not null, foreign key
+host            | boolean    | not null, default false
+avatar          | attachment | not null, (generates 4 columns)
+short_desc      | text       |
+long_desc       | text       |
 
 ## events
 column name      | data type | details

@@ -1,3 +1,8 @@
+# Attribution for default Meeple avatar
+* Photo used: http://en.wikipedia.org/wiki/File:Carcassonne-meeple.jpg
+* Credit [Klo](http://en.wikipedia.org/wiki/User:Klo~enwiki)
+* License [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/deed.en "CC BY-SA 3.0")
+
 # Attribution for City Stock Images used
 
 ## New York City

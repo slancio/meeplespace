@@ -1,7 +1,7 @@
 <form>
   <h2>Account</h2>
 
-  <ul>
+  <ul class="account-details">
     <li>
       <label for="user-email">Email</label>
       <input name="user[email]" id="user-email" type="text" value="<%= user.escape('email') %>" required>
@@ -24,6 +24,16 @@
           </option>
         <% }); %>
       </select>
+    </li>
+
+    <li>
+      <label for="user-avatar">Avatar Upload</label>
+      <input type="file" name="user[avatar]" id="user-avatar" class="upload-avatar">
+    </li>
+
+    <li>
+      <label for="user-avatar-preview">Avatar Preview</label>
+      <img src="<%= user.escape('avatar') %>" id="user-avatar-preview" class="preview-avatar">
     </li>
 
     <li>

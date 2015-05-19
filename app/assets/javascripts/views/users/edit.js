@@ -8,7 +8,8 @@ Meeplespace.Views.UserEdit = Backbone.View.extend({
   template: JST['users/edit'],
 
   events: {
-    'submit form': 'submit'
+    'submit form': 'submit',
+    'change .upload-avatar': 'uploadAvatar'
   },
 
   render: function () {
@@ -16,6 +17,28 @@ Meeplespace.Views.UserEdit = Backbone.View.extend({
     this.$el.html(content);
 
     return this;
+  },
+
+  uploadAvatar: function (event) {
+    var that = this;
+    var file = event.currentTarget.files[0];
+    var reader = new FileReader();
+
+    reader.onloadend = function () {
+      that._updatePreview(reader.result);
+      that.model._avatar = reader.result;
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      that._updatePreview("");
+      delete that.model._avatar;
+    }
+  },
+
+  _updatePreview: function (src) {
+    this.$el.find(".preview-avatar").attr("src",src);
   },
 
   submit: function (event) {

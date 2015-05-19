@@ -2,17 +2,21 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  email           :string           not null
-#  nickname        :string           not null
-#  password_digest :string           not null
-#  session_token   :string           not null
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  city_id         :integer          not null
-#  host            :boolean          default(FALSE), not null
-#  short_desc      :text
-#  long_desc       :text
+#  id                  :integer          not null, primary key
+#  email               :string           not null
+#  nickname            :string           not null
+#  password_digest     :string           not null
+#  session_token       :string           not null
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  city_id             :integer          not null
+#  host                :boolean          default(FALSE), not null
+#  short_desc          :text
+#  long_desc           :text
+#  avatar_file_name    :string
+#  avatar_content_type :string
+#  avatar_file_size    :integer
+#  avatar_updated_at   :datetime
 #
 
 class User < ActiveRecord::Base
@@ -22,6 +26,10 @@ class User < ActiveRecord::Base
   validates :nickname, presence: true
   validates :city_id, presence: true
   validates :host, inclusion: { in: [true, false] }
+
+  # Paperclip validations
+  has_attached_file :avatar, styles: {thumb: "130x130#"}, default_url: "missing.jpg"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   attr_reader :password
   after_initialize :ensure_session_token

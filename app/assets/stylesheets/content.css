@@ -93,11 +93,17 @@ button:hover {
   box-shadow: 0 1px #F2AF8E, 0 2px #F2AF8E, 0 3px #F2AF8E, 0 4px #F2AF8E, 0 5px #F2AF8E, 0 6px #F2AF8E;
 }
 
-input[type="text"], input[type="email"], input[type="password"] {
+input[type="text"],
+input[type="email"],
+input[type="password"] {
   height: 30px;
   font-size: 14px;
 }
 
+input[type="file"] {
+  height: 30px;
+  font-size: 16px;
+}
 
 .cities {
   width: 640px;
@@ -178,4 +184,10 @@ input[type="text"], input[type="email"], input[type="password"] {
 .home-page > a:hover {
   background: #2A3287;
   box-shadow: 0 1px #20457C, 0 2px #20457C, 0 3px #20457C, 0 4px #20457C, 0 5px #20457C, 0 6px #20457C;
+}
+
+.account-details .preview-avatar {
+  float: right;
+  width: 400px;
+  padding-bottom: 20px;
 }

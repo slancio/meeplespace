@@ -3,6 +3,7 @@ json.img_url asset_path(city.img_url)
 json.hosts city.hosts do |host|
   json.id host.id
   json.nickname host.nickname
+  json.avatar asset_path(host.avatar.url(:thumb))
 end
 json.city_events city.events do |event|
   json.id event.id

@@ -1,7 +1,12 @@
 module Api
   class UsersController < ApiController
-  
-    wrap_parameters format: :json
+
+    # We want the params nested under post.
+    # We can achieve this either by submitting
+    # them nested from Backbone, or have Rails
+    # magically wrap the params for us. I'm
+    # choosing to do it using Backbone.
+    wrap_parameters false
 
     def index
       @users = User.where({ host: true });
@@ -45,7 +50,7 @@ module Api
 
       def user_params
         self.params.require(:user).permit(:email, :nickname, :city_id,
-                                          :password, :host)
+                                          :password, :host, :avatar)
       end
 
   end

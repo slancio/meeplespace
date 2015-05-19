@@ -35,6 +35,13 @@ gem 'rails_12factor'
 # Backbone
 gem 'backbone-on-rails'
 
+# Figaro for secure configs
+gem "figaro"
+
+# Paperclip and AWS for img uploads and storage
+gem "paperclip"
+gem 'aws-sdk', '~> 1.6'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

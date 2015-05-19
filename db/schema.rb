@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150518194441) do
+ActiveRecord::Schema.define(version: 20150519144535) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,16 +49,20 @@ ActiveRecord::Schema.define(version: 20150518194441) do
   add_index "outings", ["event_id", "user_id"], name: "index_outings_on_event_id_and_user_id", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                           null: false
-    t.string   "nickname",                        null: false
-    t.string   "password_digest",                 null: false
-    t.string   "session_token",                   null: false
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.integer  "city_id",                         null: false
-    t.boolean  "host",            default: false, null: false
+    t.string   "email",                               null: false
+    t.string   "nickname",                            null: false
+    t.string   "password_digest",                     null: false
+    t.string   "session_token",                       null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.integer  "city_id",                             null: false
+    t.boolean  "host",                default: false, null: false
     t.text     "short_desc"
     t.text     "long_desc"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["city_id"], name: "index_users_on_city_id", using: :btree
