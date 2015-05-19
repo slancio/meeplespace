@@ -5,6 +5,8 @@ window.Meeplespace = {
   Routers: {},
   initialize: function () {
 
+    this._apiKey = meeplespacegapikey;
+
     this.currentUser = new Meeplespace.Models.CurrentUser();
     this.currentUser.fetch();
 

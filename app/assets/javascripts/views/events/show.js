@@ -1,3 +1,3 @@
-Meeplespace.Views.EventShow = Backbone.View.extend({
+Meeplespace.Views.EventShow = Backbone.CompositeView.extend({
   
 });

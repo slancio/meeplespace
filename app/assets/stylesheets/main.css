@@ -2,6 +2,18 @@ body {
   background: #ECDFBD;
 }
 
+#map-canvas { 
+  float: right;
+  margin: 0;
+  padding: 0;
+  width: 400px;
+  height: 300px;
+}
+
+html, body {
+  height: 100%;
+}
+
 .hidden {
   display: none;
 }

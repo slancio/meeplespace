@@ -1,3 +1,9 @@
+<% if Rails.env.production? %>
+  <% api_key = "key=AIzaSyDdCVgt_izBNun2niELnb8vzoTS45CN6u0" %>
+<% else %>
+  <% api_key = '' %>
+<% end %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,12 +11,14 @@
   <link href='http://fonts.googleapis.com/css?family=Titillium+Web:700' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", media: "all" %>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?<%= api_key %>"></script>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
 <%= yield %>
+  <script type="text/javascript">meeplespacegapikey = '<%= api_key %>'</script>
 
 </body>
 </html>
