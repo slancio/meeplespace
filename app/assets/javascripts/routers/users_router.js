@@ -48,7 +48,8 @@ Meeplespace.Routers.UsersRouter = Meeplespace.Routers.MSRouter.extend({
 
     var model = this.collection.getOrFetch(id);
     var hostView = new Meeplespace.Views.UserHost({
-      model: model
+      model: model,
+      collection: this.collection
     });
     this._swapView(hostView);
   },

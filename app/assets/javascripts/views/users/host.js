@@ -9,6 +9,8 @@ Meeplespace.Views.UserHost = Backbone.View.extend({
 
   initialize: function (options) {
     this.model = options.model;
+    this.listenTo(this.model, "sync change", this.render);
+    this.listenTo(Meeplespace.currentUser, "sync change", this.render);
   },
 
   makeHost: function (event) {
@@ -17,9 +19,10 @@ Meeplespace.Views.UserHost = Backbone.View.extend({
     this.model.set('host', true);
     var that = this;
     this.model.save({}, {
-      patch: true,
       success: function () {
-        Backbone.navigate("users/" + that.model.id, { trigger: true });
+        Meeplespace.currentUser.fetch();
+        that.collection.add(that.model, { merge: true });
+        Backbone.history.navigate("users/" + that.model.id, { trigger: true });
       }
     });
   },

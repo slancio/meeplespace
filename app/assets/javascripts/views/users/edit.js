@@ -27,7 +27,6 @@ Meeplespace.Views.UserEdit = Backbone.View.extend({
 
     this.model.set(userData);
     this.model.save({}, {
-      // patch: true,
       success: function () {
         Meeplespace.currentUser.fetch();
         that.collection.add(that.model, { merge: true });
