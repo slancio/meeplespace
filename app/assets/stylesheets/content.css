@@ -101,7 +101,7 @@ input[type="password"] {
 }
 
 input[type="file"] {
-  height: 30px;
+  margin: 5px 0;
   font-size: 16px;
 }
 

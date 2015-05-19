@@ -31,8 +31,10 @@ Meeplespace.Views.UserEdit = Backbone.View.extend({
 
     if (file) {
       reader.readAsDataURL(file);
+      this.$('.user-avatar-preview').removeClass('hidden');
     } else {
       that._updatePreview("");
+      this.$('.user-avatar-preview').addClass('hidden');
       delete that.model._avatar;
     }
   },
