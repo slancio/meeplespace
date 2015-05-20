@@ -1,6 +1,8 @@
 module Api
   class GamesController < ApiController
   
+    require 'addressable/uri'
+
     def search
       # @search_results = search_app
       # if @search_results.empty?
@@ -22,7 +24,7 @@ module Api
       def search_bgg
         bgg_query_root = 'http://www.boardgamegeek.com/xmlapi2/search?query='
         query_string = bgg_query_root + I18n.transliterate(params[:title])
-        RestClient.get(query_string, { accept: :xml }){ |response, request, result|
+        RestClient.get(Addressable::URI.parse(query_string).normalize.to_str, { accept: :xml }){ |response, request, result|
           case response.code
           when 200
             # Fetch the XML

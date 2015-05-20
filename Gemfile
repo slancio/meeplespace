@@ -44,6 +44,8 @@ gem 'aws-sdk', '~> 1.6'
 
 # Rest client gem for making get requests to BGG XML API
 gem 'rest-client'
+# Sanitize URIs used in RestClient GET requests
+gem 'addressable'
 # Parse XML data
 gem 'nokogiri'
 # Make games searchable
