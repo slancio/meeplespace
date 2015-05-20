@@ -10,6 +10,7 @@
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  host_id          :integer          not null
+#  game_id          :integer          not null
 #
 
 class Event < ActiveRecord::Base
@@ -18,6 +19,7 @@ class Event < ActiveRecord::Base
   validates :location_privacy, inclusion: { in: [true, false] }
   validates :slots, presence: true, numericality: { only_integer: true }
   validates :host_id, presence: true
+  validates :game_id, presence: true
 
   belongs_to :event_host,
     class_name: "User",
@@ -28,6 +30,7 @@ class Event < ActiveRecord::Base
   has_one :city, through: :event_host, autosave: false
   has_many :outings, dependent: :destroy, inverse_of: :event
   has_many :attendees, through: :outings, source: :user
+  has_one :game
 
   default_scope { order(date: :desc) }
 

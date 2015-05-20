@@ -10,6 +10,7 @@
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  host_id          :integer          not null
+#  game_id          :integer          not null
 #
 
 require 'test_helper'

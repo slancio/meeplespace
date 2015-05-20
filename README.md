@@ -27,7 +27,7 @@ Hosts can also:
 
 - [X] Create an Event
 - [X] Give Event a Date and Location
-- [ ] Set an Event's Game_ID(BGG XML API)
+- [X] Set an Event's Game_ID(BGG XML API)
 - [X] Make an event location public or private to non-attendees
 - [ ] Send Event Reminders
 

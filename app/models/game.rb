@@ -27,6 +27,8 @@ class Game < ActiveRecord::Base
   validates :bgg_id, presence: true, uniqueness: true
   validates :year, numericality: { only_integer: true }, allow_nil: true
 
+  has_many :events
+
   def self.find_by_bgg_id(bg_id)
     Game.find_by(bgg_id: bg_id)
   end
