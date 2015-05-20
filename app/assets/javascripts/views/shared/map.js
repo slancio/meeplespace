@@ -11,8 +11,11 @@ Meeplespace.Views.ShowMap = Backbone.View.extend({
     this._location = options.location;
   },
 
-  getMap: function (addressField) {
+  getMap: function ($formField) {
     var that = this;
+    if ($formField) {
+      this.$formField = $formField;
+    }
 
     $.ajax({
       url: "https://maps.googleapis.com/maps/api/geocode/json?address=" +
@@ -21,11 +24,21 @@ Meeplespace.Views.ShowMap = Backbone.View.extend({
            Meeplespace._apiKey,
       dataType: "json",
     }).done(function (data) {
-      console.log(data.results[0].geometry);
+      if (data.status === "ZERO_RESULTS") {
+        that.$el.addClass("hidden");
+        if (that.$formField) {
+          that.$formField.val("");
+          alert("Search returned no results");
+        }
+        return;
+      }
       that._MSLat = data.results[0].geometry.location.lat;
       that._MSLong = data.results[0].geometry.location.lng;
-      that._location = data.results[0].formatted_address;
       that.showMap();
+
+      if (that.$formField) {
+        that.$formField.val(data.results[0].formatted_address);
+      }
     });
   },
 

@@ -1,11 +1,13 @@
 Meeplespace.Views.EventNew = Backbone.CompositeView.extend({
 
   initialize: function (options) {
-    // this.initMap();
-    // this.listenTo(this.model, "sync change", this.render);
-    this.listenTo(Meeplespace.cities, "sync", this.initMap);
-    var that = this;
+    if (Meeplespace.cities.length === 0) {
+      this.listenToOnce(Meeplespace.cities, "sync", this.initMap);
+    } else {
+      this.initMap();
+    }
 
+    var that = this;
     this.listenTo(this.model, "sync change", function () {
       that._gMap.getMap();
       that.render();
@@ -16,7 +18,7 @@ Meeplespace.Views.EventNew = Backbone.CompositeView.extend({
 
   events: {
     'submit form': 'submit',
-    'change #event-location': 'startTimer'
+    'keypress #event-location': 'startTimer'
   },
 
   initMap: function () {
@@ -28,15 +30,28 @@ Meeplespace.Views.EventNew = Backbone.CompositeView.extend({
   },
 
   startTimer: function (event) {
+    this._gMap.$el.removeClass("hidden");
     this.timestamp = new Date().getTime();
     this._gMap._location = $(event.currentTarget).val();
     setTimeout(this.lookupLocation.bind(this), 1500);
+    this.hideButton();
   },
 
   lookupLocation: function () {
     if ((new Date().getTime() - this.timestamp) >= 1500) {
-      this._gMap.getMap();
+      this._gMap.getMap($('#event-location'));
+      this.unhideButton();
     }
+  },
+
+  hideButton: function () {
+    $('.submit-button').addClass('hidden');
+    $('.disabled-button').removeClass('hidden');
+  },
+
+  unhideButton: function () {
+    $('.disabled-button').addClass('hidden');
+    $('.submit-button').removeClass('hidden');
   },
 
   render: function () {

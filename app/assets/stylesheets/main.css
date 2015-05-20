@@ -101,6 +101,21 @@ button:hover {
   box-shadow: 0 1px #F2AF8E, 0 2px #F2AF8E, 0 3px #F2AF8E, 0 4px #F2AF8E, 0 5px #F2AF8E, 0 6px #F2AF8E;
 }
 
+.disabled-button > strong  {
+  width: 400px;
+  float: right;
+  box-sizing: border-box;
+  color: #C4C3C2;
+  background: #C4C3C2;
+  border-style: none;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 18px;
+  padding: 3px;
+  font-weight: 700;
+  box-shadow: 0 1px #3B3A35, 0 2px #3B3A35, 0 3px #3B3A35, 0 4px #3B3A35, 0 5px #3B3A35, 0 6px #3B3A35;
+}
+
 input[type="text"],
 input[type="email"],
 input[type="password"] {

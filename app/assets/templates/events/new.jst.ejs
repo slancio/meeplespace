@@ -9,7 +9,7 @@
 
     <li>
       <label for="event-location">Location</label>
-      <input name="event[location]" id="event-location" type="text" value="<%= myEvent.escape('location') %>" placeholder="Somewhere Awesome" required>
+      <input name="event[location]" id="event-location" type="text" value="<%= myEvent.escape('location') %>" placeholder="Search: Address or Landmark" required>
     </li>
 
     <li>
@@ -49,7 +49,11 @@
       </select>
     </li>
 
-    <li>
+    <li class="disabled-button hidden">
+      <strong>Host Game!</strong>
+    </li>
+
+    <li class="submit-button">
       <button>Host Game!</button>
     </li>
   </ul>
