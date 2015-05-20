@@ -41,6 +41,7 @@ module Api
                 bg_title = boardgame.css("name")[0].attributes["value"].value
                 game.title = bg_title
                 
+                # some games have no year in db
                 unless boardgame.css("yearpublished").empty?
                   bg_year = boardgame.css("yearpublished")[0].attributes["value"].value.to_i
                   game.year = bg_year

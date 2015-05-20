@@ -35,7 +35,10 @@ class Game < ActiveRecord::Base
     RestClient.get(bgg_query, { accept: :xml }){ |response, request, result|
       case response.code
       when 200
-        self.img_url = Nokogiri::XML(response).css("image").text
+        parsedUrl = Nokogiri::XML(response).css("image")
+        unless parsedUrl.empty?
+          self.img_url = parsedUrl.text
+        end
       end
     }
   end
