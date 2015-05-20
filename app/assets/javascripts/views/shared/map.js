@@ -8,6 +8,7 @@ Meeplespace.Views.ShowMap = Backbone.View.extend({
   },
 
   initialize: function (options) {
+    this._city = options.city;
     this._location = options.location;
   },
 
@@ -19,7 +20,7 @@ Meeplespace.Views.ShowMap = Backbone.View.extend({
 
     $.ajax({
       url: "https://maps.googleapis.com/maps/api/geocode/json?address=" +
-           this._location + "&" + Meeplespace._apiKey,
+           this._location + "," + this._city + "&" + Meeplespace._apiKey,
       dataType: "json",
     }).done(function (data) {
       if (data.status === "ZERO_RESULTS") {
@@ -30,6 +31,7 @@ Meeplespace.Views.ShowMap = Backbone.View.extend({
         }
         return;
       }
+
       that._MSLat = data.results[0].geometry.location.lat;
       that._MSLong = data.results[0].geometry.location.lng;
       that.showMap();

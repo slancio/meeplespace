@@ -23,7 +23,8 @@ Meeplespace.Views.EventNew = Backbone.CompositeView.extend({
 
   initMap: function () {
     this._gMap = new Meeplespace.Views.ShowMap({
-      location: Meeplespace.cities.get(Meeplespace.currentUser.get('city_id')).get('name')
+      location: Meeplespace.cities.get(Meeplespace.currentUser.get('city_id')).get('name'),
+      city: Meeplespace.cities.get(Meeplespace.currentUser.get('city_id')).get('name')
     });
     this.addSubview('.map', this._gMap);
     this._gMap.getMap();
