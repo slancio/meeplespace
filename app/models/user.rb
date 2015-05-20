@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
   validates :host, inclusion: { in: [true, false] }
 
   # Paperclip validations
-  has_attached_file :avatar, styles: {thumb: "130x130#"}, default_url: "missing.jpg"
+  has_attached_file :avatar, styles: {thumb: "130x130#", profile: "400x300>"}, default_url: "missing.jpg"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   attr_reader :password
