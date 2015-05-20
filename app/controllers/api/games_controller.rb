@@ -21,7 +21,7 @@ module Api
 
       def search_bgg
         bgg_query_root = 'http://www.boardgamegeek.com/xmlapi2/search?query='
-        query_string = bgg_query_root + params[:title]
+        query_string = bgg_query_root + I18n.transliterate(params[:title])
         RestClient.get(query_string, { accept: :xml }){ |response, request, result|
           case response.code
           when 200
