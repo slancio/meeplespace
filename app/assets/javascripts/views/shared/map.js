@@ -19,9 +19,7 @@ Meeplespace.Views.ShowMap = Backbone.View.extend({
 
     $.ajax({
       url: "https://maps.googleapis.com/maps/api/geocode/json?address=" +
-           this._location +
-           "&key=" +
-           Meeplespace._apiKey,
+           this._location + "&" + Meeplespace._apiKey,
       dataType: "json",
     }).done(function (data) {
       if (data.status === "ZERO_RESULTS") {
