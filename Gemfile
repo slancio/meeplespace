@@ -42,6 +42,13 @@ gem "figaro"
 gem "paperclip"
 gem 'aws-sdk', '~> 1.6'
 
+# Rest client gem for making get requests to BGG XML API
+gem 'rest-client'
+# Parse XML data
+gem 'nokogiri'
+# Make games searchable
+gem 'pg_search'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

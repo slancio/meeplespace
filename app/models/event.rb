@@ -16,7 +16,7 @@ class Event < ActiveRecord::Base
   validates :date, presence: true
   validates :location, presence: true
   validates :location_privacy, inclusion: { in: [true, false] }
-  validates :slots, presence: true
+  validates :slots, presence: true, numericality: { only_integer: true }
   validates :host_id, presence: true
 
   belongs_to :event_host,

@@ -1,0 +1,1 @@
+json.partial! "api/games/game", collection: @search_results, as: :game

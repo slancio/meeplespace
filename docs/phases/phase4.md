@@ -5,7 +5,7 @@
 * Game
 
 ### Controllers
-* Api::GameController (create, show)
+* Api::GameController (show, search)
 
 ### Views
 * game/show.json.jbuilder
@@ -24,3 +24,5 @@
 
 ## Gems/Libraries
 Geocoder
+rest-client
+Nokogiri

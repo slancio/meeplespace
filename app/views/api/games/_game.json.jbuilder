@@ -1,0 +1,1 @@
+json.(game, :title, :year, :bgg_id, :img_url)
