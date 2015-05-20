@@ -26,3 +26,11 @@ json.event_host do
   json.nickname event.event_host.nickname
   json.avatar asset_path(event.event_host.avatar.url(:profile))
 end
+
+json.game do
+  json.id event.game.id
+  json.title event.game.title
+  json.year event.game.year
+  json.img_url event.game.img_url
+  json.bgg_id event.game.bgg_id
+end
