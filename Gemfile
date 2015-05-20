@@ -30,7 +30,9 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'newrelic_rpm'
 
 # Use rails_12factor on Heroku
-gem 'rails_12factor'
+group :production do
+  gem 'rails_12factor'
+end
 
 # Backbone
 gem 'backbone-on-rails'
