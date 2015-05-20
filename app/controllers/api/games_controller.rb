@@ -2,10 +2,11 @@ module Api
   class GamesController < ApiController
   
     def search
-      @search_results = search_app
-      if @search_results.empty?
-        @search_results = search_bgg
-      end
+      # @search_results = search_app
+      # if @search_results.empty?
+      #   @search_results = search_bgg
+      # end
+      @search_results = search_bgg
 
       render :search
     end
@@ -34,13 +35,17 @@ module Api
               bg_id = boardgame.attributes["id"].value.to_i
               
               if Game.find_by_bgg_id(bg_id).nil?
-                bg_title = boardgame.css("name")[0].attributes["value"].value
-                bg_year = boardgame.css("yearpublished")[0].attributes["value"].value.to_i
-                
                 game = Game.new()
                 game.bgg_id = bg_id
+                
+                bg_title = boardgame.css("name")[0].attributes["value"].value
                 game.title = bg_title
-                game.year = bg_year
+                
+                unless boardgame.css("yearpublished").empty?
+                  bg_year = boardgame.css("yearpublished")[0].attributes["value"].value.to_i
+                  game.year = bg_year
+                end
+
                 game.save
               end
 
