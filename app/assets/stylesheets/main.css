@@ -126,6 +126,10 @@ input[type="password"] {
   font-size: 14px;
 }
 
+textarea {
+  resize: vertical;
+}
+
 .combodate {
   font-size: 12px;
   max-width: 400px;

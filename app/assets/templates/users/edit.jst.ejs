@@ -27,6 +27,16 @@
     </li>
 
     <li>
+      <label for="user-short-bio">Short Bio</label>
+      <textarea id="user-short-bio" name="user[short_desc]" value="<%= user.escape('short_desc') %>" placeholder="A short description of yourself"></textarea>
+    </li>
+
+    <li>
+      <label for="user-long-bio">Long Bio</label>
+      <textarea id="user-long-bio" name="user[long_desc]" value="<%= user.escape('long_desc') %>" placeholder="A longer description. This should probably talk about what kind of games you want to play and how your events will be run."></textarea>
+    </li>
+
+    <li>
       <label for="user-avatar">Avatar Upload</label>
       <input type="file" name="user[avatar]" id="user-avatar" class="upload-avatar">
     </li>
