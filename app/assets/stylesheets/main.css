@@ -44,12 +44,15 @@ form li {
 form label {
   font-weight: 500;
   width: 120px;
-  margin-top: 5px;
-  display: inline-block;
   float: left;
-  padding: 3px 0;
+  padding: 6px 0;
 }
 
+hr {
+  border: 0;
+  height: 1px;
+  background: #F2AFBE;
+}
 
 input:focus, select:focus, textarea:focus {  
   outline: none;
@@ -118,7 +121,8 @@ button:hover {
 
 input[type="text"],
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="datetime-local"] {
   height: 30px;
   font-size: 14px;
 }

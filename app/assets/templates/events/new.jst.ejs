@@ -1,10 +1,22 @@
 <form>
   <h2>New Event</h2>
 
-  <ul>
+  <ul class="new-event">
     <li>
       <label for="event-date">Date</label>
       <input name="event[date]" id="event-date" type="datetime-local" value="<%= myEvent.escape('date') %>" required>
+    </li>
+
+    <li>
+      <label for="event-privacy">Private?</label>
+      <select name="event[location-privacy]" id="event-privacy">
+        <option value="true"
+          <% if (myEvent.location_privacy) { %><%= "selected" %><% } %>
+        >Yes</option>
+        <option value="false"
+          <% if (!myEvent.location_privacy) { %><%= "selected" %><% } %>
+        >No</option>
+      </select>
     </li>
 
     <li>
@@ -14,18 +26,6 @@
 
     <li>
       <div class="map group"></div>
-    </li>
-
-    <li>
-      <label for="event-privacy">Hide Location?</label>
-      <select name="event[location-privacy]" id="event-privacy">
-        <option value="true"
-          <% if (myEvent.location_privacy) { %><%= "selected" %><% } %>
-        >Yes</option>
-        <option value="false"
-          <% if (!myEvent.location_privacy) { %><%= "selected" %><% } %>
-        >No</option>
-      </select>
     </li>
 
     <li>
@@ -43,9 +43,14 @@
     </li>
 
     <li>
-      <label for="event-game">Game</label>
-      <select name="event[game_id] id="event-game">
-        <option value="1">1</option>
+      <label for="game-search" id="game-search-label">Search Games</label>
+      <input id="game-search" type="text" placeholder="Search: Game Title">
+    </li>
+
+    <li>
+      <label for="event-game" id="event-game-label"></label>
+      <select name="event[game_id]" id="event-game">
+        <option value="" class="disabled-option" disabled></option>
       </select>
     </li>
 

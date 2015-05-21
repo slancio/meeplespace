@@ -18,8 +18,7 @@ class Game < ActiveRecord::Base
                   :ignoring => :accents,
                   :using => {
                     :tsearch => {
-                      :prefix => true,
-                      :any_word => true
+                      :prefix => true
                     }
                   }
 

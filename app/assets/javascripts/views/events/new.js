@@ -12,13 +12,18 @@ Meeplespace.Views.EventNew = Backbone.CompositeView.extend({
       that._gMap.getMap();
       that.render();
     });
+
+    this._gameSearchResults = new Meeplespace.Collections.Games();
+    this.listenTo(this._gameSearchResults, "add", this.addGame);
+    this.listenTo(this._gameSearchResults, "remove", this.removeGame);
   },
 
   template: JST['events/new'],
 
   events: {
     'submit form': 'submit',
-    'keypress #event-location': 'startTimer'
+    'keypress #event-location': 'startMapTimer',
+    'keypress #game-search': 'startGameTimer'
   },
 
   initMap: function () {
@@ -30,19 +35,56 @@ Meeplespace.Views.EventNew = Backbone.CompositeView.extend({
     this._gMap.getMap();
   },
 
-  startTimer: function (event) {
+  startMapTimer: function (event) {
     this._gMap.$el.removeClass("hidden");
-    this.timestamp = new Date().getTime();
+    this.mapTimestamp = new Date().getTime();
     this._gMap._location = $(event.currentTarget).val();
-    setTimeout(this.lookupLocation.bind(this), 1500);
+    setTimeout(this.lookupLocation.bind(this), 1200);
+    this.hideButton();
+  },
+
+  startGameTimer: function (event) {
+    $('.disabled-option').removeClass('hidden');
+
+    this._gameSearchResults.each(function (result) {
+      this._gameSearchResults.remove(result);
+    }.bind(this));
+
+    this._searchTitle = $(event.currentTarget).val();
+    this.gameTimestamp = new Date().getTime();
+    setTimeout(this.lookupGame.bind(this), 1200);
     this.hideButton();
   },
 
   lookupLocation: function () {
-    if ((new Date().getTime() - this.timestamp) >= 1500) {
+    if ((new Date().getTime() - this.mapTimestamp) >= 1200) {
       this._gMap.getMap($('#event-location'));
       this.unhideButton();
     }
+  },
+
+  lookupGame: function () {
+    if ((new Date().getTime() - this.gameTimestamp) >= 1200) {
+      this._gameSearchResults.fetch({
+        data: { title: $('#game-search').val() },
+        success: function () {
+          $('#game-search').val("");
+          $('.disabled-option').addClass('hidden');
+          $('#event-game-label').html("Choose Game");
+          $('#game-search-label').empty();
+          this.unhideButton();
+        }.bind(this)
+      });
+    }
+  },
+
+  removeGame: function (game) {
+    this.removeModelSubview("#event-game", game);
+  },
+
+  addGame: function (game) {
+    this._gameView = new Meeplespace.Views.GameOption({ model: game });
+    this.addSubview("#event-game", this._gameView);
   },
 
   hideButton: function () {
@@ -54,7 +96,7 @@ Meeplespace.Views.EventNew = Backbone.CompositeView.extend({
     $('.disabled-button').addClass('hidden');
     $('.submit-button').removeClass('hidden');
   },
-
+  
   render: function () {
     var content = this.template({ myEvent: this.model });
     this.$el.html(content);

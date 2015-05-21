@@ -30,7 +30,7 @@ class Event < ActiveRecord::Base
   has_one :city, through: :event_host, autosave: false
   has_many :outings, dependent: :destroy, inverse_of: :event
   has_many :attendees, through: :outings, source: :user
-  has_one :game
+  belongs_to :game
 
   default_scope { order(date: :desc) }
 
