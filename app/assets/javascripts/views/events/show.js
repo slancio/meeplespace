@@ -1,10 +1,9 @@
 Meeplespace.Views.EventShow = Backbone.CompositeView.extend({
   
   initialize: function (options) {
-    this.initMap();
     var that = this;
     this.listenTo(this.model, "sync change", function () {
-      that._gMap.getMap();
+      that.initMap();
       that.render();
     });
   },
@@ -13,7 +12,8 @@ Meeplespace.Views.EventShow = Backbone.CompositeView.extend({
 
   initMap: function () {
     this._gMap = new Meeplespace.Views.ShowMap({
-      location: this.model.location
+      location: this.model.get('location'),
+      city: Meeplespace.cities.get(Meeplespace.currentUser.get('city_id')).get('name')
     });
     this.addSubview('.map', this._gMap);
     this._gMap.getMap();

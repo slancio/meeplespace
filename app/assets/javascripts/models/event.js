@@ -17,6 +17,14 @@ Meeplespace.Models.Event = Backbone.Model.extend({
     return this._eventHost;
   },
 
+  game: function () {
+    if (!this._game) {
+      this._game = new Meeplespace.Models.Game([], { event: this });
+    }
+
+    return this._game;
+  },
+
   parse: function (response) {
     if (response.attendees) {
       this.attendees().set(response.attendees);
@@ -26,6 +34,11 @@ Meeplespace.Models.Event = Backbone.Model.extend({
     if (response.event_host) {
       this.eventHost().set(response.event_host);
       delete response.event_host;
+    }
+
+    if (response.game) {
+      this.game().set(response.game);
+      delete response.game;
     }
 
     return response;
