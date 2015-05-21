@@ -7,7 +7,12 @@ Meeplespace.Views.GameOption = Backbone.View.extend({
   
   render: function () {
     this.$el.val(this.model.id);
-    this.$el.html(this.model.escape('title') + " (" + this.model.get('year') + ")");
+    var year = this.model.get('year');
+    if (year === null && typeof year === "object") {
+      this.$el.html(this.model.escape('title'));
+    } else {
+      this.$el.html(this.model.escape('title') + " (" + this.model.get('year') + ")");
+    }
 
     return this;
   }

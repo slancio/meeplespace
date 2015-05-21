@@ -119,6 +119,11 @@ Meeplespace.Views.EventNew = Backbone.CompositeView.extend({
     var eventData = $form.serializeJSON().event;
     var that = this;
 
+    if (moment(eventData.date, "DD-MM-YYYY h:mm A").unix() <= moment().unix()) {
+      alert("Date must be in the future");
+      return;
+    }
+
     this.model.set(eventData);
     this.model.save({}, {
       success: function () {
