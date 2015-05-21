@@ -89,19 +89,20 @@ button {
   width: 400px;
   float: right;
   box-sizing: border-box;
-  background: #F2AF8E;
+  background: #2A6A87;
+  color: #EDCFBD;
   border-style: none;
   border-radius: 5px;
   font-size: 18px;
   padding: 2px; 
   font-weight: 700;
-  box-shadow: 0 1px #F59677, 0 2px #F59677, 0 3px #F59677, 0 4px #F59677, 0 5px #F59677, 0 6px #F59677;
+  box-shadow: 0 1px #2A3287, 0 2px #2A3287, 0 3px #2A3287, 0 4px #2A3287, 0 5px #2A3287, 0 6px #2A3287;
 }
 
 button:hover {
   font-size: 18px;
-  background: #F59677;
-  box-shadow: 0 1px #F2AF8E, 0 2px #F2AF8E, 0 3px #F2AF8E, 0 4px #F2AF8E, 0 5px #F2AF8E, 0 6px #F2AF8E;
+  background: #2A3287;
+  box-shadow: 0 1px #20457C, 0 2px #20457C, 0 3px #20457C, 0 4px #20457C, 0 5px #20457C, 0 6px #20457C;
 }
 
 .disabled-button > strong  {
