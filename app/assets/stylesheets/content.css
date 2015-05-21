@@ -41,7 +41,7 @@
   font-size: 18px;
 }
 
-.link a {
+.link a, {
   padding: 10px 0 10px 10px;
   display: block;
   color: #FB6648;
@@ -103,4 +103,71 @@
 .new-event li:nth-child(5),
 .new-event li:nth-child(7) {
   border-bottom: 1px solid #F2AFBE;
+}
+
+.thumb {
+  border-radius: 50%;
+  border: 1px solid #FB6648;
+  padding: 3px;
+  margin-bottom: 7px;
+}
+
+.host-link {
+  width: 138px;
+  text-align: center;
+  color: #FB6648;
+  cursor: pointer;
+  margin: 40px;
+}
+
+.host-link:hover {
+  text-decoration: underline;
+}
+
+.event-link {
+  width: 700px;
+  margin: 30px auto;
+  position: relative;
+}
+
+.event-link .heading {
+  display: block;
+  width: 380px;
+  margin-left: 120px;
+  font-size: 20px;
+  border-bottom: 1px solid #FB6648;
+}
+
+.event-link .location {
+  display: block;
+  position: absolute;
+  width: 350px;
+  margin-top: 10px;
+  left: 150px;
+  text-align: right;
+}
+
+.event-link .slots {
+  float: right;
+  display: block;
+  width: 160px;
+  height: 35px;
+  background: #F59677;
+  border-radius: 5px;
+  box-shadow: 0 1px #FB6658, 0 2px #FB6658, 0 3px #FB6658, 0 4px #FB6658, 0 5px #FB6658, 0 6px #FB6658;
+}
+
+.event-link .slots:hover {
+  background: #FB6658;
+  color: #F2AF8E;
+  box-shadow: 0 1px #F2AF8E, 0 2px #F2AF8E, 0 3px #F2AF8E, 0 4px #F2AF8E, 0 5px #F2AF8E, 0 6px #F2AF8E;
+
+}
+
+.event-link .slots > a {
+  display: block;
+  text-align: center;
+  font-size: 18px;
+  padding: 6px 6px 18px 6px;
+  text-transform: uppercase;
 }
