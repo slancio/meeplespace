@@ -18,7 +18,6 @@ Users can also:
 
 - [X] Create sessions (log in)
 - [ ] Sign up for Upcoming Event Slots
-- [ ] Sign up for Upcoming Event Waitlists
 - [X] Sign up to Host Events
 - [ ] View their Event Calendar
 - [X] Create a Public Profile
@@ -70,6 +69,7 @@ Add Notifications to application. I'll also add the ability for the app to autom
 [Details][phase-five]
 
 ### Bonus Features (TBD)
+- [ ] Give filled Events Waitlists
 - [ ] Comments/Images for Completed Events
 - [ ] Allow Non-Users to sign up and join event at same time
 - [ ] View Own Past Events

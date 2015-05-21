@@ -111,21 +111,27 @@
 
 .thumb > img {
   border-radius: 50%;
-  border: 1px solid #FB6648;
+  border: 1px solid #2A3287;
   padding: 3px;
+}
+
+.thumb:hover > img {
+  border: 0;
+  padding: 4px;
+  background: #2A3287;
+}
+
+.thumb:hover > strong {
+  text-decoration: underline;
 }
 
 .thumb > strong {
   position: absolute;
   text-align: center;
-  color: #FB6648;
+  color: #2A3287;
   width: 100%;
   top: 24px;
   left: 0;
-}
-
-.thumb > strong:hover {
-  text-decoration: underline;
 }
 
 .host-link .thumb{
@@ -134,7 +140,7 @@
 
 .event-link {
   width: 700px;
-  margin: 30px auto;
+  margin: 30px auto 60px auto;
   position: relative;
 }
 
@@ -161,16 +167,15 @@
   display: block;
   width: 160px;
   height: 35px;
-  background: #F59677;
   border-radius: 5px;
-  box-shadow: 0 1px #FB6658, 0 2px #FB6658, 0 3px #FB6658, 0 4px #FB6658, 0 5px #FB6658, 0 6px #FB6658;
+  background: #2A6A87;
+  color: #EDCFBD;
+  box-shadow: 0 1px #2A3287, 0 2px #2A3287, 0 3px #2A3287, 0 4px #2A3287, 0 5px #2A3287, 0 6px #2A3287;
 }
 
 .event-link .slots:hover {
-  background: #FB6658;
-  color: #F2AF8E;
-  box-shadow: 0 1px #F2AF8E, 0 2px #F2AF8E, 0 3px #F2AF8E, 0 4px #F2AF8E, 0 5px #F2AF8E, 0 6px #F2AF8E;
-
+  background: #2A3287;
+  box-shadow: 0 1px #20457C, 0 2px #20457C, 0 3px #20457C, 0 4px #20457C, 0 5px #20457C, 0 6px #20457C;
 }
 
 .event-link .slots > a {
