@@ -1,3 +1,8 @@
-<img src="<%= user.get('avatar_full') %>">
+<section class="group">
+  <header><%= user.escape('nickname') %></header>
+  <aside><%= user.escape('short_desc') %></aside>
+  <article><%= user.escape('long_desc') %></article>
+  <img src="<%= user.get('avatar_full') %>">
+</section>
 <strong><%= user.escape('nickname') %>'s upcoming games</strong>
 <ul class="events group"></ul>

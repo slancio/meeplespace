@@ -186,3 +186,33 @@
   text-transform: uppercase;
   position: relative;
 }
+
+.user-profile > section {
+  display: inline-block;
+  width: 100%;
+  margin: auto;
+}
+
+.user-profile > section > aside {
+  font-style: italic;
+  padding: 10px 20px 0 20px;
+}
+
+.user-profile > section > header {
+  width: 400px;
+  color: #FB6648;
+  font-size: 26px;
+  padding: 4px 0;
+  border-bottom: 2px solid #FB6648;
+}
+
+.user-profile > section > article {
+  float: left;
+  width: 500px;
+  padding: 20px;
+}
+
+.user-profile > section > img {
+  float: right;
+  padding-left: 10px;
+}
