@@ -32,6 +32,4 @@ class Event < ActiveRecord::Base
   has_many :attendees, through: :outings, source: :user
   belongs_to :game
 
-  default_scope { order(date: :desc) }
-
 end
