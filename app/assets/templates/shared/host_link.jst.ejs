@@ -1,4 +1,4 @@
-<a href="#users/<%= host.id %>/profile">
-  <img src="<%= host.get('avatar') %>" class="thumb">
-  <%= host.escape('nickname')%>
+<a href="#users/<%= host.id %>/profile" class="thumb group">
+  <img src="<%= host.get('avatar') %>">
+  <strong><%= host.escape('nickname')%></strong>
 </a>

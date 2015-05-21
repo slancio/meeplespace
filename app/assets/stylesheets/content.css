@@ -106,22 +106,30 @@
 }
 
 .thumb {
+  position: relative;
+}
+
+.thumb > img {
   border-radius: 50%;
   border: 1px solid #FB6648;
   padding: 3px;
-  margin-bottom: 7px;
 }
 
-.host-link {
-  width: 138px;
+.thumb > strong {
+  position: absolute;
   text-align: center;
   color: #FB6648;
-  cursor: pointer;
-  margin: 40px;
+  width: 100%;
+  top: 24px;
+  left: 0;
 }
 
-.host-link:hover {
+.thumb > strong:hover {
   text-decoration: underline;
+}
+
+.host-link .thumb{
+  margin: 40px;
 }
 
 .event-link {
@@ -135,7 +143,8 @@
   width: 380px;
   margin-left: 120px;
   font-size: 20px;
-  border-bottom: 1px solid #FB6648;
+  padding-bottom: 2px;
+  border-bottom: 2px solid #FB6648;
 }
 
 .event-link .location {
@@ -170,4 +179,5 @@
   font-size: 18px;
   padding: 6px 6px 18px 6px;
   text-transform: uppercase;
+  position: relative;
 }

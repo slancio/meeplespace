@@ -1,11 +1,11 @@
 <article class="group">
-  <strong class="heading"><%= moment(cityEvent.escape('date')).format('dddd, MMMM Do YYYY @ h:mm A') %></strong>
-  <strong class="location"><%= cityEvent.escape('location') %></strong>
+  <header class="heading"><%= moment(cityEvent.escape('date')).format('dddd, MMMM Do YYYY @ h:mm A') %></header>
+  <address class="location"><%= cityEvent.escape('location') %></address>
 
   <strong class="slots"><a href="#events/<%= cityEvent.id %>"><%= cityEvent.get('slots') %> slots left</a></strong>
   
-  <a href="#users/<%= eventHost.id %>/profile">
-    <img src="<%= eventHost.get('avatar') %>" class="thumb"><br>
-    <%= eventHost.escape('nickname') %>
+  <a href="#users/<%= eventHost.id %>/profile" class="thumb">
+    <img src="<%= eventHost.get('avatar') %>">
+    <strong><%= eventHost.escape('nickname') %></strong>
   </a>
 </article>
