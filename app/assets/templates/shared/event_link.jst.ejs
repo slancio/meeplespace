@@ -2,5 +2,5 @@
 <strong><%= eventDate.toDateString() %> <%= eventDate.toLocaleTimeString() %></strong><br>
 <strong><%= cityEvent.escape('location') %></strong><br>
 <strong><%= cityEvent.get('slots') %></strong><br>
-<img src="<%= eventHost.get('img_url') %>"><br>
+<img src="<%= eventHost.get('avatar') %>"><br>
 <a href="#users/<%= eventHost.id %>/profile"><%= eventHost.escape('nickname') %></a>
