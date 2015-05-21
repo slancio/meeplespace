@@ -22,6 +22,8 @@ Meeplespace.Routers.UsersRouter = Meeplespace.Routers.MSRouter.extend({
   },
 
   userShow: function (id) {
+    if (this._requireAccess(id)) { return; }
+    
     var model = this.collection.getOrFetch(id);
     var showView = new Meeplespace.Views.UserShow({
       model: model
