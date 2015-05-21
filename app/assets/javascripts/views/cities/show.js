@@ -8,7 +8,11 @@ Meeplespace.Views.CityShow = Backbone.CompositeView.extend({
     this._hosts.each(this.addHostView.bind(this));
     this.listenTo(this._cityEvents, "add", this.addEventView);
     this._cityEvents.each(this.addEventView.bind(this));
-    this.listenTo(Meeplespace.currentUser, "sync", this.render);
+
+    var that = this;
+    this.listenTo(Meeplespace.currentUser, "sync", function () {
+      that.listenTo(that.model, "sync", that.render);
+    });
   },
 
   template: JST['cities/show'],

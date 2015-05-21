@@ -187,6 +187,7 @@
   position: relative;
 }
 
+.city-main > section,
 .user-profile > section {
   display: inline-block;
   width: 100%;
@@ -198,6 +199,7 @@
   padding: 10px 20px 0 20px;
 }
 
+.city-main > section > header,
 .user-profile > section > header {
   width: 400px;
   color: #FB6648;
@@ -206,6 +208,7 @@
   border-bottom: 2px solid #FB6648;
 }
 
+.city-main > section > article,
 .user-profile > section > article {
   float: left;
   width: 500px;

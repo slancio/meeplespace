@@ -1,3 +1,8 @@
+<section class="group">
+  <% debugger %>
+  <header><%= city.escape('name') %></header>
+  <article><%= city.escape('description') %></article>
+</section>
 <strong>Join us for an upcoming game session</strong>
 <% if (Meeplespace.currentUser.get('host') && (city.id === Meeplespace.currentUser.get('city_id'))) { %>
   <a href="#events/new" class="host-new">Host a Game Session</a>

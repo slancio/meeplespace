@@ -1,4 +1,4 @@
-json.(city, :id, :name)
+json.(city, :id, :name, :description)
 json.img_url asset_path(city.img_url)
 json.hosts city.hosts do |host|
   json.id host.id
