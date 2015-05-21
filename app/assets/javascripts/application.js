@@ -11,6 +11,8 @@
 // about supported directives.
 //
 //= require jquery
+//= require moment.min
+//= require combodate
 //= require jquery_ujs
 //= require jquery.serializejson
 //= require underscore

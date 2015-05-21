@@ -4,7 +4,7 @@
   <ul class="new-event">
     <li>
       <label for="event-date">Date</label>
-      <input name="event[date]" id="event-date" type="datetime-local" value="<%= myEvent.escape('date') %>" required>
+      <input name="event[date]" id="event-date" type="text" data-format="DD-MM-YYYY h:mm:A" data-template="DD / MM / YYYY     hh : mm A" value="<%= moment().format('DD-MM-YYYY h:mm:A') %>" required>
     </li>
 
     <li>

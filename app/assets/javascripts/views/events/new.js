@@ -100,6 +100,13 @@ Meeplespace.Views.EventNew = Backbone.CompositeView.extend({
   render: function () {
     var content = this.template({ myEvent: this.model });
     this.$el.html(content);
+    this.$('#event-date').combodate({
+      yearDescending: true,
+      minYear: parseInt(moment().format('YYYY'), 10),
+      maxYear: parseInt(moment().format('YYYY'), 10) + 1,
+      minuteStep: 15,
+      smartDays: true
+    });
     this.attachSubviews();
 
     return this;

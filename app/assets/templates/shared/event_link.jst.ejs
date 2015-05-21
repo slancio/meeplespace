@@ -1,5 +1,4 @@
-<% var eventDate = new Date(cityEvent.escape('date')) %>
-<strong><%= eventDate.toDateString() %> <%= eventDate.toLocaleTimeString() %></strong><br>
+<strong><%= moment(cityEvent.escape('date')).format('dddd, MMMM Do YYYY @ h:mm A') %></strong><br>
 <strong><%= cityEvent.escape('location') %></strong><br>
 <strong><%= cityEvent.get('slots') %></strong><br>
 <img src="<%= eventHost.get('avatar') %>"><br>

@@ -121,10 +121,23 @@ button:hover {
 
 input[type="text"],
 input[type="email"],
-input[type="password"],
-input[type="datetime-local"] {
+input[type="password"] {
   height: 30px;
   font-size: 14px;
+}
+
+.combodate {
+  font-size: 12px;
+  max-width: 400px;
+}
+
+.combodate > select {
+  max-width: 60px;
+  margin: auto;
+}
+
+.combodate > .year {
+  max-width: 80px;
 }
 
 input[type="file"] {
