@@ -3,13 +3,18 @@
   <address class="location"><%= cityEvent.escape('location') %></address>
 
   <% var slotsRemaining = cityEvent.get('slots') - cityEvent.get('num_attendees') %>
-
   <% if ((slotsRemaining > 0) && (eventHost.id === Meeplespace.currentUser.id)) { %>
     <strong class="slots"><a href="#events/<%= cityEvent.id %>"><%= slotsRemaining %> slots left</a></strong>
   <% } else if (((slotsRemaining > 0)) && (Meeplespace.currentUser.id > 0)) { %>
-    <strong class="slots"><form><button><%= slotsRemaining %> slots left</button></form></strong>
+    <% var myEventIds = [] %>
+    <% Meeplespace.currentUser._myEvents.models.forEach(function(el) { myEventIds.push(el.id); }) %>
+    <% if (myEventIds.indexOf(cityEvent.id) > -1) { %>
+      <strong class="slots"><form class="cancel-attend"><button>Cancel</button></form></strong>
+    <% } else { %>
+      <strong class="slots"><form class="confirm-attend"><button><%= slotsRemaining %> slots left</button></form></strong>
+    <% } %>
   <% } else if (((slotsRemaining > 0)) && !(Meeplespace.currentUser.id > 0)) { %>
-    <strong class="slots"><a href="#session/new"><%= slotsRemaining %> slots left</a></strong> 
+    <strong class="slots"><a href="/" class="require-login"><%= slotsRemaining %> slots left</a></strong> 
   <% } else { %>
     <strong class="noslots"><span>Full Game</span></strong>
   <% } %>

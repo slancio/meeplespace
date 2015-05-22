@@ -15,7 +15,7 @@ if (user == current_user)
     json.date event.date
     json.location event.location
     json.host_id event.host_id
-    json.num_attendees attended_event.attendees.length
+    json.num_attendees event.attendees.length
   end
 else
   json.(user, :id, :nickname, :city_id, :host)

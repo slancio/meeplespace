@@ -1,0 +1,1 @@
+json.partial! "api/outings/outing", outing: @outing

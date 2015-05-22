@@ -1,7 +1,7 @@
 module Api
   class EventsController < ApiController
     before_action :require_signed_in!, except: [:show]
-    before_action :require_host, except: [:show, :index]
+    before_action :require_host, except: [:show, :index, :cancel]
 
     def index
       @events = current_user.events
@@ -36,6 +36,13 @@ module Api
     def destroy
       @event = current_user.hosted_events.find(params[:id])
       @event.try(:destroy)
+      render :show
+    end
+
+    def cancel
+      @event = Event.find(params[:id])
+      @outing = current_user.outings.find_by(event_id: params[:id])
+      @outing.try(:destroy)
       render :show
     end
 
