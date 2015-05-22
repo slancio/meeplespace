@@ -79,7 +79,7 @@ class Game < ActiveRecord::Base
     def self.parse_BGG_XML(boardgame)
       bg_id = boardgame.attributes["id"].value.to_i
       bg_title = boardgame.css("name")[0].attributes["value"].value
-      if boardgame.css("yearpublished").empty?
+      if boardgame.css("yearpublished").empty? || (boardgame.css("yearpublished")[0].attributes["value"].value.to_i > 9999)
         bg_year = nil
       else
         bg_year = boardgame.css("yearpublished")[0].attributes["value"].value.to_i
