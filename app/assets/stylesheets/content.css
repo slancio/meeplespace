@@ -194,6 +194,20 @@
   text-transform: uppercase;
 }
 
+.event-link .slots > .cancel-attend > button,
+.event-link .slots > .destroy-event > button {
+  color: #FFFFFF;
+  background: #F56F5E;
+  box-shadow: 0 1px #FD1612, 0 2px #FD1612, 0 3px #FD1612, 0 4px #FD1612, 0 5px #FD1612, 0 6px #FD1612;
+}
+
+.event-link .slots > .cancel-attend > button:hover,
+.event-link .slots > .destroy-event > button:hover {
+  color: #FFFFFF;
+  background: #FD1612;
+  box-shadow: 0 1px #F56F5E, 0 2px #F56F5E, 0 3px #F56F5E, 0 4px #F56F5E, 0 5px #F56F5E, 0 6px #F56F5E;
+}
+
 .noslots {
   float: right;
   width: 160px;

@@ -4,7 +4,7 @@
 
   <% var slotsRemaining = cityEvent.get('slots') - cityEvent.get('num_attendees') %>
   <% if ((slotsRemaining > 0) && (eventHost.id === Meeplespace.currentUser.id)) { %>
-    <strong class="slots"><a href="#events/<%= cityEvent.id %>"><%= slotsRemaining %> slots left</a></strong>
+    <strong class="slots"><form class="destroy-event"><button>Destroy</button></form></strong>
   <% } else if (((slotsRemaining > 0)) && (Meeplespace.currentUser.id > 0)) { %>
     <% var myEventIds = [] %>
     <% Meeplespace.currentUser._myEvents.models.forEach(function(el) { myEventIds.push(el.id); }) %>

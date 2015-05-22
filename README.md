@@ -17,7 +17,8 @@ Non-Users can:
 Users can also:
 
 - [X] Create sessions (log in)
-- [ ] Sign up for Upcoming Event Slots
+- [X] Sign up for Upcoming Event Slots
+- [X] Cancel attendance of an Event
 - [X] Sign up to Host Events
 - [ ] View their Event Calendar
 - [X] Create a Public Profile

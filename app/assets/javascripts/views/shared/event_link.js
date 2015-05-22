@@ -8,12 +8,14 @@ Meeplespace.Views.EventLink = Backbone.View.extend({
   events: {
     'submit .confirm-attend': 'submit',
     'submit .cancel-attend': 'cancelAttend',
-    'click .require-login': 'requireLogin'
+    'click .require-login': 'requireLogin',
+    'click .destroy-event': 'destroyEvent'
   },
 
   initialize: function (options) {
     this.myHost = options.myHost;
     this.listenTo(this.model, "sync", this.render);
+    this.listenTo(Meeplespace.currentUser, "sync", this.render);
   },
 
   render: function () {
@@ -33,12 +35,23 @@ Meeplespace.Views.EventLink = Backbone.View.extend({
 
   cancelAttend: function (event) {
     event.preventDefault();
+    var that = this;
 
     $.ajax({
       url: "/api/events/" + this.model.id + "/cancel",
       type: "DELETE",
       success: function (result) {
-        Backbone.history.loadUrl();
+        Meeplespace.currentUser.fetch();
+      }
+    });
+  },
+
+  destroyEvent: function (event) {
+    event.preventDefault();
+    var that = this;
+    this.model.destroy({
+      success: function () {
+        Meeplespace.currentUser.fetch();
       }
     });
   },
@@ -51,7 +64,7 @@ Meeplespace.Views.EventLink = Backbone.View.extend({
     outing.set('event_id', this.model.id);
     outing.save({}, {
       success: function () {
-        Backbone.history.navigate("#events/" + that.model.id, { trigger: true });
+        Meeplespace.currentUser.fetch();
       },
       error: function (data) {
         alert("Unable to sign you up for this event");
