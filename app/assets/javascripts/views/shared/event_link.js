@@ -7,6 +7,7 @@ Meeplespace.Views.EventLink = Backbone.View.extend({
 
   initialize: function (options) {
     this.myHost = options.myHost;
+    this.listenTo(this.model, "sync", this.render);
   },
 
   render: function () {

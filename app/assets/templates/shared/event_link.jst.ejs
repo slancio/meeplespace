@@ -2,7 +2,17 @@
   <header class="heading"><%= moment(cityEvent.escape('date')).format('dddd, MMMM Do YYYY @ h:mm A') %></header>
   <address class="location"><%= cityEvent.escape('location') %></address>
 
-  <strong class="slots"><a href="#events/<%= cityEvent.id %>"><%= cityEvent.get('slots') %> slots left</a></strong>
+  <% var slotsRemaining = cityEvent.get('slots') - cityEvent.get('num_attendees') %>
+
+  <% if ((slotsRemaining > 0) && (eventHost.id === Meeplespace.currentUser.id)) { %>
+    <strong class="slots"><a href="#events/<%= cityEvent.id %>"><%= slotsRemaining %> slots left</a></strong>
+  <% } else if (((slotsRemaining > 0)) && (Meeplespace.currentUser.id > 0)) { %>
+    <strong class="slots"><form><button><%= slotsRemaining %> slots left</button></form></strong>
+  <% } else if (((slotsRemaining > 0)) && !(Meeplespace.currentUser.id > 0)) { %>
+    <strong class="slots"><a href="#session/new"><%= slotsRemaining %> slots left</a></strong> 
+  <% } else { %>
+    <strong class="noslots"><span>Full Game</span></strong>
+  <% } %>
   
   <a href="#users/<%= eventHost.id %>/profile" class="thumb">
     <img src="<%= eventHost.get('avatar') %>">

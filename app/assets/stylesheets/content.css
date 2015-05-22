@@ -162,7 +162,9 @@
   text-align: right;
 }
 
-.event-link .slots {
+.event-link .slots,
+.event-link .slots > form,
+.event-link .slots > form > button {
   float: right;
   display: block;
   width: 160px;
@@ -170,6 +172,7 @@
   border-radius: 5px;
   background: #2A6A87;
   color: #EDCFBD;
+  font-weight: 500;
   box-shadow: 0 1px #2A3287, 0 2px #2A3287, 0 3px #2A3287, 0 4px #2A3287, 0 5px #2A3287, 0 6px #2A3287;
 }
 
@@ -185,6 +188,29 @@
   padding: 6px 6px 18px 6px;
   text-transform: uppercase;
   position: relative;
+}
+
+.event-link .slots > form > button {
+  text-transform: uppercase;
+}
+
+.noslots {
+  float: right;
+  width: 160px;
+  height: 35px;
+  border-radius: 5px;
+  color: #EFEFEF;
+  background: #C4C3C2;
+  border-style: none;
+  font-size: 18px;
+  text-align: center;
+  box-shadow: 0 1px #3B3A35, 0 2px #3B3A35, 0 3px #3B3A35, 0 4px #3B3A35, 0 5px #3B3A35, 0 6px #3B3A35;
+}
+
+.noslots > span {
+  display: block;
+  padding: 6px 6px 18px 6px;
+  text-transform: uppercase;
 }
 
 .city-main > section,

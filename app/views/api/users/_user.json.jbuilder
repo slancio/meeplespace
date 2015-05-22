@@ -8,12 +8,14 @@ if (user == current_user)
     json.location hosted_event.location
     json.location_privacy hosted_event.location_privacy
     json.host_id hosted_event.host_id
+    json.num_attendees hosted_event.attendees.length
   end
   json.attended_events user.events do |event|
     json.id event.id
     json.date event.date
     json.location event.location
     json.host_id event.host_id
+    json.num_attendees attended_event.attendees.length
   end
 else
   json.(user, :id, :nickname, :city_id, :host)
@@ -28,5 +30,6 @@ else
     end
     json.location_privacy hosted_event.location_privacy
     json.host_id hosted_event.host_id
+    json.num_attendees hosted_event.attendees.length
   end
 end

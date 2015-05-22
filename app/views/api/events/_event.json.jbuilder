@@ -8,6 +8,8 @@ else
   json.location "Location will be emailed to attendees"
 end
 
+json.num_attendees event.attendees.length
+
 json.attendees event.attendees do |attendee|
   if (current_user && current_user.events.include?(event))
     json.id attendee.id
