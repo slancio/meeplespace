@@ -53,20 +53,20 @@ class Game < ActiveRecord::Base
     }
   end
 
-  private
-
-    def get_img_url
-      bgg_query = 'http://www.boardgamegeek.com/xmlapi2/thing?id=' + self.bgg_id.to_str
-      RestClient.get(bgg_query, { accept: :xml }){ |response, request, result|
-        case response.code
-        when 200
-          parsedUrl = Nokogiri::XML(response).css("image")
-          unless parsedUrl.empty?
-            self.img_url = parsedUrl.text
-          end
+  def get_img_url
+    bgg_query = 'http://www.boardgamegeek.com/xmlapi2/thing?id=' + self.bgg_id.to_str
+    RestClient.get(bgg_query, { accept: :xml }){ |response, request, result|
+      case response.code
+      when 200
+        parsedUrl = Nokogiri::XML(response).css("image")
+        unless parsedUrl.empty?
+          self.img_url = parsedUrl.text
         end
-      }
-    end
+      end
+    }
+  end
+
+  private
 
     def self.pass_or_add_game(id, title, year)
       if Game.find_by_bgg_id(id).nil?

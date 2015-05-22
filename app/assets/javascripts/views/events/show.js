@@ -2,7 +2,7 @@ Meeplespace.Views.EventShow = Backbone.CompositeView.extend({
   
   initialize: function (options) {
     var that = this;
-    this.listenTo(this.model, "sync change", function () {
+    this.listenTo(this.model, "sync", function () {
       that.initMap();
       that.render();
     });
@@ -17,18 +17,6 @@ Meeplespace.Views.EventShow = Backbone.CompositeView.extend({
     });
     this.addSubview('.map', this._gMap);
     this._gMap.getMap();
-  },
-
-  startTimer: function (event) {
-    this.timestamp = new Date().getTime();
-    this._gMap._location = $(event.currentTarget).val();
-    setTimeout(this.lookupLocation.bind(this), 1500);
-  },
-
-  lookupLocation: function () {
-    if ((new Date().getTime() - this.timestamp) >= 1500) {
-      this._gMap.getMap($('#event-location'));
-    }
   },
 
   render: function () {
