@@ -1,0 +1,9 @@
+<article class="event group">
+  <header class="heading"><%= moment(myEvent.escape('date')).format('ddd, MMMM Do YYYY @ h:mm A') %></header>
+  <address class="location"><%= myEvent.escape('location') %></address>
+
+  <div class="map group"></div>
+
+  <figure class="host"></figure>
+  <ul class="attendees"></ul>
+</article>
