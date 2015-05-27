@@ -10,6 +10,16 @@
   padding: 10px;
 }
 
+.home-page > article {
+  width: 500px;
+  margin: auto;
+  font-size: 20px;
+  text-align: justify;
+}
+
+.home-page p {
+  margin-top: 10px;
+}
 
 .cities {
   width: 640px;
