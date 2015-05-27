@@ -240,6 +240,7 @@
 }
 
 .city-main > section > header,
+.event > header,
 .user-profile > section > header {
   width: 400px;
   color: #FB6648;
@@ -263,6 +264,15 @@
 .event {
   width: 720px;
   margin: auto;
+}
+
+.event > address {
+  margin: 10px 0 10px 30px;
+}
+
+.event > .host {
+  margin-top: 80px;
+  margin-left: 40px;
 }
 
 .event .map {
