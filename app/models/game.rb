@@ -54,7 +54,7 @@ class Game < ActiveRecord::Base
   end
 
   def get_img_url
-    bgg_query = 'http://www.boardgamegeek.com/xmlapi2/thing?id=' + self.bgg_id.to_str
+    bgg_query = 'http://www.boardgamegeek.com/xmlapi2/thing?id=' + self.bgg_id.to_s
     RestClient.get(bgg_query, { accept: :xml }){ |response, request, result|
       case response.code
       when 200

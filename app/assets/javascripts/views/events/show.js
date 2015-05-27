@@ -17,6 +17,7 @@ Meeplespace.Views.EventShow = Backbone.CompositeView.extend({
     });
     this.addSubview('.map', this._gMap);
     this._gMap.getMap();
+    this._gMap.$el.removeClass("hidden");
   },
 
   render: function () {
