@@ -26,7 +26,7 @@ end
 json.event_host do
   json.id event.event_host.id
   json.nickname event.event_host.nickname
-  json.avatar asset_path(event.event_host.avatar.url(:profile))
+  json.avatar asset_path(event.event_host.avatar.url(:thumb))
 end
 
 json.game do

@@ -259,3 +259,12 @@
   float: right;
   padding-left: 10px;
 }
+
+.event {
+  width: 720px;
+  margin: auto;
+}
+
+.event .map {
+  float: right;
+}

@@ -1,1 +1,1 @@
-json.partial! "api/cities/city", city: @city
+json.partial! "api/cities/city", city: @city, events: @city.events.where('date > ?', DateTime.now)
