@@ -29,6 +29,7 @@ window.Meeplespace = {
       $rootEl: $('.content'),
       collection: new Meeplespace.Collections.Events()
     });
+    this.footer = new Meeplespace.Views.Footer({ el: '.footer'});
 
     Backbone.history.start();
   }

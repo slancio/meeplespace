@@ -1,0 +1,33 @@
+.footer {
+  width: 960px;
+  margin: 40px auto 10px auto;
+  color: #3B3A35;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.author {
+  float: left;
+  padding: 20px;
+}
+
+.footer-links {
+  float: right;
+}
+
+.footer-links > li {
+  float: left;
+}
+
+.footer-links > li > a {
+  padding: 20px;
+  display: block;
+  color: #2A6A87;
+}
+
+.footer-links > li > a:hover {
+  font-weight: 700;
+  text-decoration: underline;
+  color: #20457C;
+}
