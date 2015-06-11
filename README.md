@@ -1,94 +1,36 @@
 # meeple.space
 
-[Heroku link][heroku]
+[Meeple.space](http://meeple.space) is a Meetup-like site for planning and joining board-gaming events. It has a Rails back-end API and uses Backbone on the front-end.  It connects to an external XML API from BoardGameGeek.com to populate its database of games and uses the Google Maps API and Geocoder for hosts to select locations.
 
-[heroku]: https://meeplespace.herokuapp.com
+# How to use:
+* [Use the live site](http://meeple.space) OR
+* Clone or Extract ZIP for this repo
+* Run rake db:create
+* Push to heroku or the host of your choice
 
-## Minimum Viable Product
-Meeple.space is a clone of Meetup for playing board games built on Rails and Backbone. 
+# Major Challenges:
+* Cannot make AJAX requests for external XML data because of the same-origin rule - this must be done on the backend with Ruby.
+* Parsing XML data with XPATH & CSS queries
+* Create a RESTful JSON API that does not leak protected user data.
+* Restrict Google location queries just to the city the user has selected. 
 
-Non-Users can:
-
-- [X] View Cities
-- [X] View Hosts
-- [X] View Upcoming Events
-- [X] Create accounts
-
-Users can also:
-
-- [X] Create sessions (log in)
-- [X] Sign up for Upcoming Event Slots
-- [X] Cancel attendance of an Event
-- [X] Sign up to Host Events
-- [ ] View their Event Calendar
-- [X] Create a Public Profile
-
-Hosts can also:
-
-- [X] Create an Event
-- [X] Give Event a Date and Location
-- [X] Set an Event's Game_ID(BGG XML API)
-- [X] Make an event location public or private to non-attendees
-- [ ] Send Event Reminders
-
-
-## Design Docs
-* [View Wireframes][views]
-* [DB schema][schema]
-* [Stock images attribution][attrib]
-
-[views]: ./docs/views.md
-[schema]: ./docs/schema.md
-[attrib]: ./docs/attrib.md
-
-## Implementation Timeline
-
-### Phase 1: User Authentication, Profiles (~1 day)
-I will implement user authentication in Rails based on the practices learned at App Academy. By the end of this phase, users will be able to create an account, sign in and update their account information using Rails views. The most important part of this phase will be pushing the app to Heroku and ensuring that everything works before moving on to phase 2.
-
-[Details][phase-one]
-
-### Phase 2: Creating Events (~2 days)
-I will allow users to make themselves a host and
-create events through API routes and Backbone views. By the end of this phase, users will be able to create and view events.  Games will be given just a string (address) location for now until Google API lookups are implemented in a later phase.
-
-[Details][phase-two]
-
-### Phase 3: Editing Events and Profiles (~1 day)
-I will integrate Paperclip to allow users to upload images for their profiles or events.  I will improve the forms here and make sure that all of the features until now work solidly.
-
-[Details][phase-three]
-
-### Phase 4: External API Integration (~2-3 days)
-In this phase I will implement Google Maps/Places API integration to allow users to set validated locations and display a small map.  I will also allow users to lookup games in the BoardGameGeek XML API and overwrite the title and img fields for games.
-
-[Details][phase-four]
-
-### Phase 5: Notifications, Email Reminders and CSS (~2 day)
-Add Notifications to application. I'll also add the ability for the app to automatically send users reminder emails for their upcoming events. This is where I'll also do a final pass on the CSS and try to make sure the design of the site is solid. 
-
-[Details][phase-five]
-
-### Bonus Features (TBD)
-- [ ] Give filled Events Waitlists
-- [ ] Comments/Images for Completed Events
-- [ ] Allow Non-Users to sign up and join event at same time
-- [ ] View Own Past Events
-- [ ] Hosts can set "Potential Games" with Attendee Polls
-- [ ] Multiple Sessions
-- [ ] Link to Facebook
-- [ ] Make an attribution page for stock images used
-
-[phase-one]: ./docs/phases/phase1.md
-[phase-two]: ./docs/phases/phase2.md
-[phase-three]: ./docs/phases/phase3.md
-[phase-four]: ./docs/phases/phase4.md
-[phase-five]: ./docs/phases/phase5.md
-
-Color theme: https://color.adobe.com/1920-Leyendecker-color-theme-2522272/
-
-orange - beige blend:
-F87E5F
-F59677
-F2AF8E
-EFC7A6
+# Tech used in project:
+* Ruby
+* JavaScript
+* Rails 4
+* Backbone.js
+* Underscore
+* jQuery
+* PostgreSQL
+* pg_search gem
+* BCrypt
+* rest-client gem (for requests to external XML API)
+* Nokogiri (for parsing XML)
+* jbuilder
+* New Relic
+* Heroku
+* AWS S3
+* Figaro
+* Paperclip
+* Combodate
+* Moment
