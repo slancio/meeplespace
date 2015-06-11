@@ -50,7 +50,7 @@ module Api
 
       def user_params
         self.params.require(:user).permit(:email, :nickname, :city_id,
-                                          :password, :host, :avatar)
+                                          :password, :host, :avatar, :short_desc, :long_desc)
       end
 
   end
