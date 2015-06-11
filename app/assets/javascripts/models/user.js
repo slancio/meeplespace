@@ -3,7 +3,7 @@ Meeplespace.Models.User = Backbone.Model.extend({
   
   toJSON: function(){
     // We want proper namespacing of our attributes in Rails.
-    var json = { user: _.clone(this.attributes) };
+    var json = { user: _.omit(this.attributes, ['avatar_thumb', 'avatar_full']) };
 
     if (this._avatar) {
       json.user.avatar = this._avatar;
