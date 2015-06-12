@@ -158,6 +158,10 @@
   left: 0;
 }
 
+.hosts {
+  margin-left: 24px;
+}
+
 .host-link,
 .attendee-link {
   float: left;
