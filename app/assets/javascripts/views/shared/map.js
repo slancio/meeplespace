@@ -54,5 +54,9 @@ Meeplespace.Views.ShowMap = Backbone.View.extend({
     };
 
     this._map = new google.maps.Map(this.el, mapOptions);
+    new google.maps.Marker({
+      position: { lat: this._MSLat, lng: this._MSLong },
+      map: this._map
+    });
   }
 });
