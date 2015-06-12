@@ -1,6 +1,9 @@
 body {
   background: #ECDFBD;
   overflow-y: scroll;
+  overflow-x: hidden;
+  max-width: 100%;
+
 }
 
 body > .header {
