@@ -5,7 +5,7 @@ json.hosts city.hosts do |host|
   json.nickname host.nickname
   json.avatar asset_path(host.avatar.url(:thumb))
 end
-json.city_events events do |event|
+json.city_events events.order(:date) do |event|
   json.id event.id
   json.date event.date
   if ((current_user && (
