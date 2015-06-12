@@ -1,7 +1,9 @@
 <section class="event group">
   <header class="heading">
-    <%= myEvent.game().get('title') %>&nbsp;
-    (<%= myEvent.game().get('year') %>)
+    <%= myEvent.game().get('title') %>
+    <% if (myEvent.game().get('year') !== null) { %>
+      &nbsp;(<%= myEvent.game().get('year')%>)
+    <% } %>
   </header>
 
   <article class="group">
