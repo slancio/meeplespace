@@ -20,4 +20,5 @@ json.city_events events do |event|
   json.slots event.slots
   json.host_id event.host_id
   json.num_attendees event.attendees.length
+  json.game_title event.game.title
 end

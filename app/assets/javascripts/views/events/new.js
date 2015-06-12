@@ -128,7 +128,7 @@ Meeplespace.Views.EventNew = Backbone.CompositeView.extend({
     this.model.save({}, {
       success: function () {
         that.collection.add(that.model, { merge: true });
-        Backbone.history.navigate("#events/" + that.model.id, { trigger: true });
+        Backbone.history.navigate("#cities/" + Meeplespace.currentUser.get('city_id'), { trigger: true });
       },
       error: function (data) {
         alert("The form contained invalid data");

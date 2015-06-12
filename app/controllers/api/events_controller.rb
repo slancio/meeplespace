@@ -11,6 +11,7 @@ module Api
 
     def show
       @event = Event.find(params[:id])
+      @event.game.get_game_data
       render :show
     end
 

@@ -9,7 +9,7 @@ module Api
 
     def show
       @game = Game.find(params[:id])
-      @game.get_img_url
+      @game.get_game_data
       render :show
     end
 

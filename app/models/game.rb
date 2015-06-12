@@ -53,14 +53,18 @@ class Game < ActiveRecord::Base
     }
   end
 
-  def get_img_url
+  def get_game_data
     bgg_query = 'http://www.boardgamegeek.com/xmlapi2/thing?id=' + self.bgg_id.to_s
     RestClient.get(bgg_query, { accept: :xml }){ |response, request, result|
       case response.code
       when 200
-        parsedUrl = Nokogiri::XML(response).css("image")
-        unless parsedUrl.empty?
-          self.img_url = parsedUrl.text
+        image = Nokogiri::XML(response).css("image")
+        description = Nokogiri::XML(response).css("description")
+        unless image.empty?
+          self.img_url = image.text
+        end
+        unless description.empty?
+          self.description = description.text
         end
       end
     }

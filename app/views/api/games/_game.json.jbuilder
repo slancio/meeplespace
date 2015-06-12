@@ -1,1 +1,1 @@
-json.(game, :id, :title, :year, :bgg_id, :img_url)
+json.(game, :id, :title, :year, :bgg_id, :img_url, :description)

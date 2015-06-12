@@ -1,5 +1,7 @@
 <article class="group">
-  <header class="heading"><%= moment(cityEvent.escape('date')).format('dddd, MMMM Do YYYY @ h:mm A') %></header>
+  <header class="heading">
+  <a href="#events/<%= cityEvent.get('id') %>"><%= cityEvent.escape('game_title') %></a>
+  <%= moment(cityEvent.escape('date')).format('dddd, MMMM Do YYYY @ h:mm A') %></header>
   <address class="location"><%= cityEvent.escape('location') %></address>
 
   <% var slotsRemaining = cityEvent.get('slots') - cityEvent.get('num_attendees') %>

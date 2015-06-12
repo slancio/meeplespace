@@ -10,6 +10,7 @@ if (user == current_user)
     json.host_id hosted_event.host_id
     json.slots hosted_event.slots
     json.num_attendees hosted_event.attendees.length
+    json.game_title hosted_event.game.title
   end
   json.attended_events user.events do |event|
     json.id event.id
@@ -18,6 +19,7 @@ if (user == current_user)
     json.host_id event.host_id
     json.slots event.slots
     json.num_attendees event.attendees.length
+    json.game_title event.game.title
   end
 else
   json.(user, :id, :nickname, :city_id, :host, :short_desc, :long_desc)
@@ -34,5 +36,6 @@ else
     json.host_id hosted_event.host_id
     json.slots hosted_event.slots
     json.num_attendees hosted_event.attendees.length
+    json.game_title hosted_event.game.title    
   end
 end

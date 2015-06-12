@@ -177,9 +177,22 @@
   display: block;
   width: 380px;
   margin-left: 120px;
-  font-size: 22px;
+  font-size: 20px;
   padding-bottom: 2px;
   border-bottom: 2px solid #FB6648;
+}
+
+.event-link .heading > a {
+  font-size: 24px;
+  font-family: Roboto, sans-serif;
+  font-weight: 500;
+  color: #2A6A87;
+  padding-bottom: 2px;
+  display: block;
+}
+
+.event-link .heading > a:hover {
+  text-decoration: underline;
 }
 
 .event-link .location {

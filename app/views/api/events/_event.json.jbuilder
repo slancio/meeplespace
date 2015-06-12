@@ -35,4 +35,5 @@ json.game do
   json.year event.game.year
   json.img_url event.game.img_url
   json.bgg_id event.game.bgg_id
+  json.description event.game.description
 end

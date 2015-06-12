@@ -9,6 +9,8 @@ Meeplespace.Views.CityShow = Backbone.CompositeView.extend({
     this.listenTo(this._cityEvents, "add", this.addEventView);
     this._cityEvents.each(this.addEventView.bind(this));
 
+    this.listenTo(this._cityEvents, "remove", this.removeEventView);
+
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(Meeplespace.currentUser, "sync", this.render);
   },
@@ -28,6 +30,10 @@ Meeplespace.Views.CityShow = Backbone.CompositeView.extend({
       myHost: this._hosts.get(cityEvent.get('host_id'))
     });
     this.addSubview('.events', this._eventView);
+  },
+
+  removeEventView: function (cityEvent) {
+    this.removeModelSubview('.events', cityEvent);
   },
 
   render: function () {
