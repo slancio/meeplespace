@@ -14,19 +14,19 @@ json.attendees event.attendees do |attendee|
   if (current_user && current_user.events.include?(event))
     json.id attendee.id
     json.nickname attendee.nickname
-    json.avatar asset_path(attendee.avatar.url(:thumb))
+    json.avatar_thumb asset_path(attendee.avatar.url(:thumb))
   elsif (current_user && current_user.hosted_events.include?(event))
     json.id attendee.id
     json.nickname attendee.nickname
     json.email attendee.email
-    json.avatar asset_path(attendee.avatar.url(:thumb))
+    json.avatar_thumb asset_path(attendee.avatar.url(:thumb))
   end
 end
 
 json.event_host do
   json.id event.event_host.id
   json.nickname event.event_host.nickname
-  json.avatar asset_path(event.event_host.avatar.url(:thumb))
+  json.avatar_thumb asset_path(event.event_host.avatar.url(:thumb))
 end
 
 json.game do
