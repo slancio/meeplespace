@@ -158,12 +158,14 @@
   left: 0;
 }
 
-.host-link {
+.host-link,
+.attendee-link {
   float: left;
   margin-bottom: 25px;
 }
 
-.host-link .thumb{
+.host-link .thumb,
+.attendee-link .thumb {
   margin: 40px;
 }
 
@@ -315,6 +317,10 @@
   display: inline-block;
 }
 
+.attendees {
+  width: 720px;
+}
+
 .city-main > section > article,
 .user-profile > section > article {
   float: left;
@@ -339,6 +345,7 @@
 .event > .host {
   margin-top: 80px;
   margin-left: 40px;
+  height: 220px;
 }
 
 .event .map {

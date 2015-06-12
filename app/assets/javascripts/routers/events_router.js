@@ -23,7 +23,9 @@ Meeplespace.Routers.EventsRouter = Meeplespace.Routers.MSRouter.extend({
     if (!this._requireSignedIn(callback)) { return; }
 
     var model = this.collection.getOrFetch(id);
-    if (this._requireMembership(model.attendees(), model.get('host_id'))) { return; }
+    // Making event show view public.
+    // Uncomment to make it attendees(+host)-only again.
+    // if (this._requireMembership(model.attendees(), model.get('host_id'))) { return; }
     var showView = new Meeplespace.Views.EventShow({
       model: model
     });
