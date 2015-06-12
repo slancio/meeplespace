@@ -21,7 +21,7 @@ if (user == current_user)
   end
 else
   json.(user, :id, :nickname, :city_id, :host)
-  json.avatar_url asset_path(user.avatar.url(:thumb))
+  json.avatar asset_path(user.avatar.url(:thumb))
   json.hosted_events user.hosted_events do |hosted_event|
     json.id hosted_event.id
     json.date hosted_event.date
