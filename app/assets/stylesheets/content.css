@@ -173,7 +173,6 @@
   position: relative;
 }
 
-.event .heading
 .event-link .heading {
   display: block;
   width: 380px;
@@ -293,7 +292,7 @@
   margin-bottom: 5px;
 }
 
-.event .host header {
+.event .host > header {
   width: 200px;
   color: #FB6648;
   font-size: 22px;
@@ -303,7 +302,7 @@
   margin-left: 10px;
 }
 
-.event article {
+.event > article {
   width: 720px;
   float: left;
   margin-bottom: 10px;
