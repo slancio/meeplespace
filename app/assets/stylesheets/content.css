@@ -312,6 +312,8 @@
   width: 720px;
   float: left;
   margin-bottom: 10px;
+  text-align: justify;
+  
 }
 
 .event .game-img {
