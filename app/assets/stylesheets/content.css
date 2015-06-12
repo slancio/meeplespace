@@ -135,6 +135,8 @@
   border-radius: 50%;
   border: 1px solid #2A3287;
   padding: 3px;
+  width: 138px;
+  height: 138px;
 }
 
 .thumb:hover > img {
