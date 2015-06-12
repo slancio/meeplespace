@@ -24,6 +24,7 @@ Meeplespace.Views.Navbar = Backbone.View.extend({
     Meeplespace.currentUser.signOut({
       success: function () {
         Backbone.history.navigate("/", { trigger: true });
+        location.reload();
       }
     });
   }
