@@ -63,7 +63,7 @@ Meeplespace.Routers.MSRouter = Backbone.Router.extend({
   },
 
   _requireMembership: function(collection, id) {
-    if (collection.contains(Meeplespace.currentUser)) {
+    if (collection.findWhere({id: Meeplespace.currentUser.id})) {
       return false;
     }
 
