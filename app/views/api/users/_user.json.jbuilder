@@ -20,7 +20,7 @@ if (user == current_user)
     json.num_attendees event.attendees.length
   end
 else
-  json.(user, :id, :nickname, :city_id, :host)
+  json.(user, :id, :nickname, :city_id, :host, :short_desc, :long_desc)
   json.avatar asset_path(user.avatar.url(:thumb))
   json.hosted_events user.hosted_events do |hosted_event|
     json.id hosted_event.id
