@@ -1,9 +1,18 @@
 <section class="event group">
+  <header class="heading">
+    <%= myEvent.game().get('title') %>&nbsp;
+    (<%= myEvent.game().get('year') %>)
+  </header>
+
+  <article class="group">
+    <img class="game-img" src="<%= myEvent.game().get('img_url') %>">
+    <%= myEvent.game().get('description') %>
+  </article>
   <header class="heading"><%= moment(myEvent.escape('date')).format('ddd, MMMM Do YYYY @ h:mm A') %></header>
   <address class="location">Event Location: <%= myEvent.escape('location') %></address>
 
   <div class="map group"></div>
 
-  <ul class="host"></ul>
+  <ul class="host"><header class="heading">Your Game Host</header></ul>
   <ul class="attendees"></ul>
 </section>

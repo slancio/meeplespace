@@ -173,6 +173,7 @@
   position: relative;
 }
 
+.event .heading
 .event-link .heading {
   display: block;
   width: 380px;
@@ -289,6 +290,30 @@
   font-size: 26px;
   padding: 4px 0;
   border-bottom: 2px solid #FB6648;
+  margin-bottom: 5px;
+}
+
+.event .host header {
+  width: 200px;
+  color: #FB6648;
+  font-size: 22px;
+  padding: 4px 0;
+  border-bottom: 2px solid #FB6648;
+  margin-bottom: 5px;
+  margin-left: 10px;
+}
+
+.event article {
+  width: 720px;
+  float: left;
+  margin-bottom: 10px;
+}
+
+.event .game-img {
+  float: right;
+  width: 400px;
+  margin: 0 0 10px 10px;
+  display: inline-block;
 }
 
 .city-main > section > article,
